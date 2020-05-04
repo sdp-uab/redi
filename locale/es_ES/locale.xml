@@ -12,7 +12,7 @@
   * Localization strings
   -->
 
-<locale name="en_US" full_name="U.S. English">
-	<message key="plugins.themes.redi.name">ReDi Theme</message>
-	<message key="plugins.themes.redi.description">This is the UAB organization default theme built as a child theme of the OJS 3.2 default theme.</message>
+<locale name="es_ES" full_name="Español">
+	<message key="plugins.themes.redi.name">Tema ReDi</message>
+	<message key="plugins.themes.redi.description">Este es el tema por defeThis is the UAB organization default theme built as a child theme of the OJS 3.2 default theme.</message>
 </locale>

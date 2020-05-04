@@ -1,12 +1,13 @@
-# Sample Child Theme for OJS 3
+# ReDi Theme for OJS 3.2
 
-A demonstration theme showing how to create a child theme for the default theme in OJS 3.
+ReDi is a coorporative theme build as a child theme for the default theme in OJS 3+.
 
 ## What is a child theme?
 
-A child theme is a theme that extends an existing theme by adding or modifying the styles, scripts or templates loaded by that theme. A child theme is the best way to make small modifications to an existing theme, without editing that theme's files.
+A child theme is a theme that extends an existing theme by adding or modifying the styles, scripts or templates loaded by that theme.
+A child theme let you take advantage of updates to the parent theme (default), keep your custom code separate, and minimize conflicts when upgrading the software.
 
-This allows you to take advantage of updates to the parent theme, keep your custom code separate, and minimize conflicts when upgrading the software.
+For instance, if PKP upgrades the default theme adding WCAG (as they are planning to do), this theme will inherit this capability.
 
 ## Getting familiar with the theme API
 
@@ -14,7 +15,7 @@ OJS 3 provides a simplified theme API. All themes reside in the `/plugins/themes
 
 - The `index.php` loads the theme's PHP class file and instantiates it. [View the example](index.php)
 - The `version.xml` file defines basic information about the theme. [View the example](version.xml)
-- The theme's PHP class file should reflect the name of the plugin (eg - DefaultChildThemePlugin.inc.php). This is where the good stuff happens. [View the example](DefaultChildThemePlugin.inc.php)
+- The theme's PHP class file should reflect the name of the plugin (eg - rediThemePlugin.inc.php). This is where the good stuff happens. [View the example](DefaultChildThemePlugin.inc.php)
 
 The theme's PHP class file is where the theme will load styles and scripts,
 define it's name and description, and do whatever else is desired.

@@ -24,7 +24,14 @@ class rediThemePlugin extends ThemePlugin {
 	 */
 	public function init() {
 		$this->setParent('defaultthemeplugin');
-		$this->modifyStyle('stylesheet', array('addLess' => array('styles/remove-borders.less')));
+
+		$this->modifyStyle('stylesheet', array('addLess' => array('styles/rediVariables.less')));
+
+		// DEBUG: print_r($this);
+
+		// Change the ID of this stylesheet slug to `redi`.
+		// This ensures that it won't clash with the parent's stylesheet.
+		// $this->addStyle('redi', 'styles/header.less');
 	}
 
 	/**

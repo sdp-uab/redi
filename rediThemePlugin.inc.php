@@ -25,7 +25,51 @@ class rediThemePlugin extends ThemePlugin {
 	public function init() {
 		$this->setParent('defaultthemeplugin');
 
-		$this->modifyStyle('stylesheet', array('addLess' => array('styles/rediVariables.less')));
+		// Remove the typography options of the parent theme
+		// and also dequeue any parent's fonts.
+		// `removeOption` was introduced in OJS 3.0.2
+		if (method_exists($this, 'removeOption')) {
+			$this->removeOption('typography');
+
+			$this->removeStyle('fontNotoSans');
+			$this->removeStyle('fontNotoSerif');
+			$this->removeStyle('fontNotoSansNotoSerif');
+			$this->removeStyle('fontLato');
+			$this->removeStyle('fontLora');
+			$this->removeStyle('fontLoraOpenSans');
+			$this->removeStyle('fontNotoSerif');
+			$this->removeStyle('fontNotoSerif');
+			$this->removeStyle('fontNotoSerif');
+			$this->removeStyle('fontNotoSerif');
+			$this->removeStyle('fontNotoSerif');
+		}
+
+		$this->addStyle(
+			'fontBarlowSemiCondensed',
+			'//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:200,700',
+			array('baseUrl' => '')
+		);
+
+		$this->addStyle(
+			'fontsMerriweather',
+			'//fonts.googleapis.com/css?family=Merriweather:400',
+			array('baseUrl' => '')
+		);
+
+		$this->addStyle(
+			'fontsMuli',
+			'//fonts.googleapis.com/css?family=Muli:300,400,600,700,800',
+			array('baseUrl' => '')
+		);
+
+		//DEBUG: print_r($this->parent);
+
+		$this->modifyStyle('stylesheet',
+					array('addLess' => array('styles/rediVariables.less',
+											 'styles/objects/announcement_summary.less')));
+
+		// Additional theme information
+		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
 
 		// DEBUG: print_r($this);
 
@@ -49,6 +93,23 @@ class rediThemePlugin extends ThemePlugin {
 	function getDescription() {
 		return __('plugins.themes.redi.description');
 	}
+
+	/**
+	 * Fired when the `TemplateManager::display` hook is called.
+	 *
+	 * @param string $hookname
+	 * @param array $args [$templateMgr, $template, $sendContentType, $charset, $output]
+	 */
+	public function loadTemplateData($hookName, $args) {
+		$request = Application::getRequest();
+
+		// Retrieve the TemplateManager
+		$templateMgr = $args[0];
+
+		// Template path:
+		$templateMgr->assign('rediThemePath', $request->getBaseUrl() . '/' . $this->getPluginPath());
+	}
+
 }
 
 ?>

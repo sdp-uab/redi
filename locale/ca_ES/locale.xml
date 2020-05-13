@@ -2,7 +2,7 @@
 <!DOCTYPE locale SYSTEM "../../../../../lib/pkp/dtd/locale.dtd">
 
 <!--
-  * plugins/themes/redi/locale/en_US/locale.xml
+  * plugins/themes/redi/locale/ca_ES/locale.xml
   *
   * Copyright (c) 2020 Marc Bria Ramírez (Universitat Autònoma de Barcelona)
   * Copyright (c) 2014-2016 Simon Fraser University Library
@@ -14,7 +14,6 @@
 
 <locale name="es_ES" full_name="Español">
 	<message key="plugins.themes.redi.name">Tema ReDi</message>
-	<message key="plugins.themes.redi.description">
-		Este es el tema coorporativo de la UAB, construido como un tema hijo del tema Default para OJS 3.2+.</message>
-	<message key="plugins.themes.redi.language">Lengua</message>
+	<message key="plugins.themes.redi.description">Aquest és el tema coorporatiu de la UAB, construït com un tema fill del tema Default per OJS 3.2+.</message>
+	<message key="plugins.themes.redi.language">Llengua</message>
 </locale>

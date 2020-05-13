@@ -6,4 +6,371 @@
 // Make all border colors transparent
 // @bg-border-color: transparent;
 
-@primary:			lighten(@bg-base, 10%);
+/** Variables **/
+
+// Reseting
+@bg-border-color:		transparent;
+
+// Colors
+// @primary:				lighten(@bg-base, 10%);
+@primary:				@bg-base;
+@line-color:			#9c9e9f;
+
+// Layout
+@contentOffset:			160px;  // image-height
+
+// Typography
+@font:					"Muli", "Arial", "Open Sans", sans-serif;
+@font-body:				"Merriweather", serif;
+@font-headingAlt:		"Barlow Semi Condensed", "ArialBlack", "Roboto", sans-serif;
+@font-heading:           @font;
+@font-site-title:        @font-heading;
+@font-pico:              9px;
+@line-pico:              @base;
+@font-nano:              11px;
+@line-nano:              @base;
+@font-micro:             12px;
+@line-micro:             @base;
+@font-mili:              13px;
+@line-mili:              @double;
+@font-sml:               14px;
+@line-sml:               @double;
+@font-base:              15px;
+@line-base:              @double;
+@line-base-large:        @line-base + 5; // large blocks of text
+@font-bump:              16px;
+@line-bump:              @double;
+@font-lead:              18px;
+@line-lead:              @triple;
+@font-header:            24px;
+@line-header:            @triple;
+@font-kilo:				34px;
+@line-kilo:				@triple;
+@font-mega:				38px;
+@line-mega:				@triple;
+@font-giga:				43px;
+@line-giga:				@triple;
+@font-tera:				65px;
+@line-tera:				@triple;
+
+
+// Font weights
+@extra-light:			200;
+@light:					300;
+@regular:				400;
+@medium:				500;
+@semi-bold:				600;
+@extra-bold:			700;
+@black:					800;
+
+
+/** Reset parent's stuff */
+
+.obj_galley_link {
+	border: 0;
+	border-radius: 0;
+}
+
+.obj_issue_toc .section {
+	margin: 0;
+	padding: 0;
+}
+
+.obj_issue_toc .section h2 {
+	display: block;
+    position: relative;
+    left: 0;
+    margin-top: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.obj_issue_toc .section::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: auto;
+    border-top: initial;
+}
+
+/** Layout **/
+
+// Desktop
+.pkp_structure_content {
+	top: @contentOffset;
+
+	.pkp_structure_main {
+		padding: 0;
+	}
+}
+
+#navigationUserWrapper {
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	white-space: nowrap;
+}
+
+
+#navigationUser,
+ul#languageNav,
+#languageNav ul {
+	width: auto;
+	white-space: nowrap;
+}
+
+.cmp_article_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cmp_article_list > li {
+  flex: 1 0 50%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  max-width: 50%;
+}
+
+// REVIEWS is always single column.
+.section:last-child .cmp_article_list > li {
+  flex: 1 0 100%;
+  max-width: 100%;
+}
+
+// Cover space
+.obj_issue_toc .cover {
+	width: 18%;
+}
+
+//Header
+.pkp_structure_head {
+	background-color: white;
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+
+	.pkp_head_wrapper {
+		padding-top: 0;
+
+		.pkp_site_nav_menu {
+			background-color: white;
+
+			.pkp_navigation_user {
+				margin-top: 0;
+				padding-top: 0;
+			}
+			.headerShortcuts {
+
+				a {
+					color: @primary;
+				}
+			}
+		}
+	}
+
+	//HeaderTop
+	.pkp_site_name_wrapper {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: end;
+
+		background-color: white;
+
+		.headerTop__item {
+			flex-basis:33%;
+		}
+
+		.pkp_navigation_user_wrapper {
+			position: relative;
+		}
+	}
+}
+
+
+/* To Be fixed */
+@media screen and (max-width:600px) {
+	.headerTop__item {
+		flex-basis:100%;
+	}
+	.headerTop__item .owners {
+		justify-content: center;
+	}
+}
+
+/** Typography **/
+
+.pkp_structure_main {
+	h2 {
+		font-family: @font-headingAlt;
+	}
+	.section h2 {
+		font-family: @font;
+		text-transform: uppercase;
+		font-weight: @regular;
+	    color: rgba(0,0,0,0.9);
+		color: @primary;
+	}
+}
+
+.obj_article_summary {
+	.title {
+		font-family: @font-body;
+	}
+	.meta .authors {
+		text-transform: uppercase;
+		font-size: @font-nano;
+		color: #7b7979;
+	}
+}
+
+.pkp_block {
+
+	padding-right: 0;
+
+	.title,
+	.blockTitle {
+		font-family: @font;
+		text-transform: uppercase;
+		font-size: @font-mili;
+		font-weight: @extra-bold;
+		color: rgba(0,0,0,0.8);
+	}
+}
+
+.obj_galley_link {
+	font-size: @font-nano;
+	font-weight: @extra-bold;
+	background: @bg-base;
+	color: contrast(@primary);
+}
+
+.obj_article_summary > .title a {
+	color: #444444;
+	font-weight: @semi-bold;
+}
+
+.pkp_head_wrapper {
+	li > a,
+	li > a:hover {
+		font-size: @font-nano;
+		text-transform: uppercase;
+		font-weight: @black;
+		color: @primary;
+	}
+	.dropdown-menu li > a {
+		font-weight: @regular;
+	}
+}
+
+// Search icon
+.userMenu__search::before {
+	display: inline-block;
+	content: "\f002";
+	font: normal normal normal @font-micro/1 FontAwesome;
+	    font-size: @font-micro;
+	    line-height: 1;
+	font-size: inherit;
+	color: rgba(0,0,0,0.7);
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	position: relative;
+	top: 0px;
+	right: 0;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+}
+
+a#languageToggleMenulanguageNav,
+#navigationUser li > a,
+a#languageNav,
+.pkp_navigation_user_wrapper a,
+.pkp_navigation_user_wrapper a:hover,
+.pkp_navigation_user_wrapper a:active,
+.pkp_navigation_user_wrapper a:visited {
+	font-family: @font;
+	font-size: @font-nano;
+	text-transform: uppercase;
+	color: @primary;
+	font-weight: @regular;
+}
+
+.pkp_navigation_user > li > a,
+.pkp_navigation_user > li.in_focus > a,
+.pkp_navigation_user > li > a:hover,
+.pkp_navigation_user > li > a:focus {
+    color: @primary;
+}
+
+.pkp_site_nav_menu a {
+	color: @primary;
+}
+
+/** Buttons **/
+
+.obj_galley_link {
+	line-height: @double;
+	padding: 0 @double/4;
+}
+
+
+/** Decorations **/
+
+.pkp_site_nav_toggle {
+	background-color: @primary;
+}
+
+.headerTop,
+.pkp_site_nav_menu {
+	border-bottom: 1px solid @line-color;
+}
+
+.pkp_navigation_user .task_count {
+	background-color: @primary;
+	color: contrast(@primary);
+}
+
+.obj_issue_toc .section h2 {
+	border-bottom: 1px solid @line-color;
+}
+
+.pkp_block .title,
+.blockTitle {
+	border-bottom: 1px solid @line-color;
+	width: 100%;
+/*	width: 100% + 20px;
+	margin-left: -20px; */
+}
+
+.cmp_announcements h2 {
+/*	content: 'AVISOS';
+	position: absolute;
+	top: 0px;
+	left: 0;
+	width: auto;
+*/
+	border-bottom: 1px solid @line-color;
+}
+
+.pkp_page_index .cmp_announcements h2 {
+    clip: auto;
+    position: inherit;
+    left: 0px;
+}
+
+.highlight_first {
+	background-color: #EEE;
+}
+
+
+/** Mouse Hovers **/
+.obj_article_summary > .title a:hover {
+	color: @primary;
+}

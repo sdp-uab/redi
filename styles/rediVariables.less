@@ -14,10 +14,10 @@
 // Colors
 // @primary:				lighten(@bg-base, 10%);
 @primary:				@bg-base;
-@line-color:			#9c9e9f;
-
+@color-line:			#9c9e9f;
+@color-icons: 			#797979;
 // Layout
-@contentOffset:			160px;  // image-height
+@contentOffset:			110px;  // image-height
 
 // Typography
 @font:					"Muli", "Arial", "Open Sans", sans-serif;
@@ -64,6 +64,78 @@
 @black:					800;
 
 
+/* Functions and mixins */
+
+// Drop shadow
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+ -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+ -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+ box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+/* Calling:
+.cssClass {
+ .box-shadow(5px, 5px, 6px, 0.3);
+}
+*/
+
+// Adds a FontAwsome icon as a prefix
+.prefix-icon (@content: '\f059', @color: @primary, @font-size: @font-header) {
+	display: inline-block;
+	content: @content;			/* question mark */
+	color: @color;
+	font: normal normal normal @font-size/1 FontAwesome;
+		font-size: @font-size;
+		line-height: 1;
+	font-size: @font-size;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	position: relative;
+	top: 0px;
+	right: 0;
+	width: 30px;
+	height: 30px;
+	line-height: @font-size + 2;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* Calling:
+.cssClass {
+	.prefix-icon('\f059',@primary,@font-nano);
+}
+*/
+
+// Crossbrowser opacity property
+.opacity (@opacity: 0.5) {
+	-webkit-opacity: 	@opacity;
+	-moz-opacity: 		@opacity;
+	opacity: 		@opacity;
+}
+
+/* Calling:
+.cssClass {
+	.opacity(0.7);
+}
+*/
+
+// Unify all anchor variants.
+.allAnchors(@color:@primary,@font-size:inherit,@text-transform:inherit,@font-weight:inherit) {
+	&,
+	&:active,
+	&:focus,
+	&:hover,
+	&:visited {
+		color: @color;
+		font-size: @font-size;
+		text-transform: @text-transform;
+		font-weight: @font-weight;
+	}
+}
+
+
 /** Reset parent's stuff */
 
 .obj_galley_link {
@@ -98,8 +170,6 @@
 
 // Desktop
 .pkp_structure_content {
-	top: @contentOffset;
-
 	.pkp_structure_main {
 		padding: 0;
 	}
@@ -119,6 +189,43 @@ ul#languageNav,
 #languageNav ul {
 	width: auto;
 	white-space: nowrap;
+	justify-content: flex-end;
+	white-space: nowrap;
+}
+
+.pkp_navigation_primary_wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	.pkp_navigation_primary,
+	.headerShortcuts {
+		width: 100%;
+		li {
+			display: inline-block;
+		}
+	}
+	.headerShortcuts {
+		text-align: right;
+
+		a {
+			color: @color-icons !important;
+			text-decoration: none;
+			vertical-align: middle;
+		}
+
+		a::before {
+			.prefix-icon('\f059',@primary,@font-header);
+		}
+		.headerShortcuts__send::before {
+			content: "\f139";
+		}
+		.headerShortcuts__register::before {
+			content: "\f2bd";
+			font-size: @font-header - 3;
+		}
+	}
 }
 
 .cmp_article_list {
@@ -148,6 +255,7 @@ ul#languageNav,
 .pkp_structure_head {
 	background-color: white;
 	position: fixed;
+	top: 0;
 	width: 100%;
 	z-index: 999;
 
@@ -156,15 +264,17 @@ ul#languageNav,
 
 		.pkp_site_nav_menu {
 			background-color: white;
+			border-top: 1px solid @color-line;
+			border-bottom: 1px solid @color-line;
+			.box-shadow(0px, 5px, 6px, 0.3);
 
 			.pkp_navigation_user {
 				margin-top: 0;
 				padding-top: 0;
-			}
-			.headerShortcuts {
 
-				a {
-					color: @primary;
+				.task_count {
+					background-color: @primary;
+					color: contrast(@primary);
 				}
 			}
 		}
@@ -186,20 +296,50 @@ ul#languageNav,
 
 		.pkp_navigation_user_wrapper {
 			position: relative;
+			padding-right: 0;
 		}
 	}
 }
 
 
-/* To Be fixed */
-@media screen and (max-width:600px) {
+/* Responsive */
+
+@media( max-width: @screen-tablet ) {
+	// Tablets or smaller
+	// width: @screen-tablet-container;
+
+	// Hiding owners
 	.headerTop__item {
-		flex-basis:100%;
+
+		&.owners {
+			justify-content: center;
+			display: none;
+		}
 	}
-	.headerTop__item .owners {
-		justify-content: center;
+
+	// Single column:
+	.section .cmp_article_list > li {
+	  flex: 1 0 100%;
+	  max-width: 100%;
 	}
+
+	.banner {
+		flex-wrap: wrap;
+	}
+
 }
+
+@media( min-width: @screen-desktop ) {
+	// Desktops or bigger
+	// width: @screen-desktop-container;
+}
+
+@media( min-width: @screen-lg-desktop ) {
+	// Big desktops or bigger
+	// width: @screen-lg-desktop-container;
+}
+
+
 
 /** Typography **/
 
@@ -254,27 +394,41 @@ ul#languageNav,
 }
 
 .pkp_head_wrapper {
-	li > a,
-	li > a:hover {
-		font-size: @font-nano;
-		text-transform: uppercase;
-		font-weight: @black;
-		color: @primary;
+	a,
+	li > a {
+		&,
+		&:active,
+		&:hover,
+		&:visited {
+			color: @primary;
+			font-size: @font-nano;
+			text-transform: uppercase;
+			font-weight: @black;
+		}
 	}
-	.dropdown-menu li > a {
-		font-weight: @regular;
+	.dropdown-menu {
+		li > a {
+			&,
+			&:active,
+			&:hover,
+			&:visited {
+				font-weight: @regular;
+			}
+		}
 	}
 }
 
 // Search icon
 .userMenu__search::before {
+	.prefix-icon('\f002',@color-icons,@font-sml);
+
 	display: inline-block;
 	content: "\f002";
-	font: normal normal normal @font-micro/1 FontAwesome;
-	    font-size: @font-micro;
+	font: normal normal normal @font-sml/1 FontAwesome;
+	    font-size: @font-sml;
 	    line-height: 1;
-	font-size: inherit;
-	color: rgba(0,0,0,0.7);
+	font-size: font-sml;
+	color: @color-icons;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -288,28 +442,24 @@ ul#languageNav,
 	text-align: center;
 }
 
+a#languageNav,
 a#languageToggleMenulanguageNav,
 #navigationUser li > a,
-a#languageNav,
-.pkp_navigation_user_wrapper a,
-.pkp_navigation_user_wrapper a:hover,
-.pkp_navigation_user_wrapper a:active,
-.pkp_navigation_user_wrapper a:visited {
-	font-family: @font;
-	font-size: @font-nano;
-	text-transform: uppercase;
-	color: @primary;
-	font-weight: @regular;
+.pkp_navigation_user_wrapper a {
+		&,
+		&:active,
+		&:hover,
+		&:visited {
+			color: @primary;
+			font-size: @font-nano;
+			text-transform: uppercase;
+			font-weight: @black; //@regular?
+		}
 }
 
+.pkp_site_nav_menu a,
 .pkp_navigation_user > li > a,
-.pkp_navigation_user > li.in_focus > a,
-.pkp_navigation_user > li > a:hover,
-.pkp_navigation_user > li > a:focus {
-    color: @primary;
-}
-
-.pkp_site_nav_menu a {
+.pkp_navigation_user > li.in_focus > a {
 	color: @primary;
 }
 
@@ -321,48 +471,214 @@ a#languageNav,
 }
 
 
+/** REDI PASTILLA **/
+
+.banner {
+	margin-top:	@contentOffset + 50px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	flex-basis: 33%;
+	background-color: @primary;
+}
+
+/* Hero image */
+//
+// .redi-pastilla .row {
+//   overflow: hidden;
+//   background-color: #027970;
+//   margin-right:0;
+//   margin-left:0;
+//   margin: 0;
+//   padding: 0;
+// }
+//
+// .redi-pastilla {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+// }
+//
+// .redi-pastilla.header {
+//   padding: 0;
+// 	background-color: #027970;
+//   color: #FFF;
+// }
+//
+// .redi-pastilla .redi-box {
+// /*  flex-basis: 100%;*/
+// }
+//
+// .redi-pastilla .redi-box.redi-cover {
+// /*  flex: 1;*/
+//   padding: 0;
+// }
+//
+// .redi-pastilla .redi-box.redi-text {
+//   /* flex: 2; */
+//   /* min-height: 100px; */
+// }
+//
+// .redi-pastilla .redi-box.redi-text {
+//   font-weight: 600;
+//   text-transform: uppercase;
+//   font-family: Barlow Semi Condensed;
+//   //font-family: Oswald;
+//   //font-family: Open Sans;
+//   //font-family: Barlow Condensed;
+//   //font-family: Roboto Condensed;
+//   //font-family: Fira Sans Extra Condensed;
+//   /* padding: 2rem 4rem 2rem 2rem; */
+//   padding: 2rem;
+// }
+//
+// .redi-pastilla .redi-left {
+//   width: 100%;
+//   /*height: 100%;*/
+// }
+//
+// .redi-pastilla .redi-vol-num {
+//   text-align: left;
+//   width: 45%;
+//   float:left;
+// }
+//
+// .redi-pastilla .redi-year {
+//   text-align: right;
+//   width: 45%;
+//   float: right;
+// }
+//
+// .redi-pastilla .current-issue-volume,
+// .redi-pastilla .current-issue-number,
+// .redi-pastilla .current-issue-year
+// {
+// 	display: block;
+// 	font-family: Barlow Semi Condensed;
+// 	font-weight: 200;
+// 	font-size: 2.2rem;
+// 	line-height: 2.2rem;
+// 	color: #FFF;
+// 	/* IE shit */
+// 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+// 	filter: alpha(opacity=50);
+// 	/* Modern browsers */
+// 	opacity: 0.5;
+// }
+//
+// .redi-pastilla .current-issue-number:before {
+//    content: none;
+// }
+//
+// .redi-pastilla .current-issue-year {
+// 	font-size: 5.5rem;
+// 	line-height: 4.1rem;
+// }
+//
+// .redi-pastilla .issue-title {
+// 	font-size: 3.2rem;
+// 	font-weight: 500;
+// 	text-align:  right;
+// 	padding-top: 10rem;
+// 	line-height: 94%;
+// }
+//
+//
+// .redi-pastilla .cover {
+//   max-height: 100%;
+//   max-width: 100%;
+//   object-fit: cover;
+//   /* Default image?
+//   background-image : url("https://revistes.uab.cat/ojs-jtl3/public/journals/5/cover_issue_87_en_US.jpg");
+//   background-size: cover;
+//   background-position: center;
+//   */
+// }
+//
+// .redi-pastilla .archive_issue_cover {
+//   max-width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   object-position: center;
+// }
+//
+// .redi-pastilla .redi-hover {
+// 	display: none;
+// 	position: absolute;
+// 	background-color: #027970;
+// 	top: 0;
+// 	left: 0;
+// 	padding: 0;
+// 	/* IE shit */
+// 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+// 	filter: alpha(opacity=90);
+// 	/* Modern browsers */
+// 	opacity: 0.9;
+// 	width: 100%;
+// 	height: 100%;
+// }
+//
+// .redi-pastilla .redi-box.redi-cover:hover .redi-hover,
+// .redi-pastilla .redi-box.redi-text:hover .redi-hover {
+// 	display: block;
+// }
+//
+// .redi-pastilla.header {
+// 	margin-top: 12rem;
+// }
+//
+// /* Description text */
+// .redi-pastilla .redi-hover p {
+// 	font-family: Barlow, Open Sans, Helvetica, Arial;
+// 	font-weight: 400;
+// 	font-size: 0.9rem;
+// 	text-transform: initial;
+// 	min-width: 100%;
+// 	line-height: 1.56rm;
+// 	letter-spacing: 0.2px;
+// 	text-align: justify;
+// }
+//
+// .redi-pastilla .redi-hover .description {
+// 	width: 100%;
+// 	/* padding: 1.5rem 3rem 1.5rem 1.5rem */
+// 	padding: 2rem;
+// 	margin: 0;
+// }
+//
+// .redi-pastilla .more_button {
+//   font-family: Barlow, Open Sans, Helvetica, Arial;
+//   color: #FFF;
+//   font-weight: 600;
+//   padding-top: 1em;
+//   display: block;
+//   text-align: right;
+// }
+
+
+
 /** Decorations **/
 
+// Responsive
 .pkp_site_nav_toggle {
 	background-color: @primary;
 }
 
-.headerTop,
-.pkp_site_nav_menu {
-	border-bottom: 1px solid @line-color;
-}
-
-.pkp_navigation_user .task_count {
-	background-color: @primary;
-	color: contrast(@primary);
-}
-
-.obj_issue_toc .section h2 {
-	border-bottom: 1px solid @line-color;
-}
-
+.blockTitle,
 .pkp_block .title,
-.blockTitle {
-	border-bottom: 1px solid @line-color;
+.obj_issue_toc .section h2 {
+	border-bottom: 1px solid @color-line;
 	width: 100%;
-/*	width: 100% + 20px;
-	margin-left: -20px; */
 }
 
-.cmp_announcements h2 {
-/*	content: 'AVISOS';
-	position: absolute;
-	top: 0px;
-	left: 0;
-	width: auto;
-*/
-	border-bottom: 1px solid @line-color;
-}
-
-.pkp_page_index .cmp_announcements h2 {
-    clip: auto;
-    position: inherit;
-    left: 0px;
+// ANNOUNCEMENTS
+.pkp_page_index {
+	.cmp_announcements h2 {
+		border-bottom: 1px solid @color-line;
+	    clip: auto;
+	    position: inherit;
+	    left: 0px;
+	}
 }
 
 .highlight_first {

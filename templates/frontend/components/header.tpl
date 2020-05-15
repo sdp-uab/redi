@@ -55,15 +55,20 @@
 						<div class="pkp_navigation_primary_wrapper">
 							{* Primary navigation menu for current application *}
 							{$primaryMenu}
+							<ul class="headerShortcuts">
+								<li>
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="headerShortcuts__send">
+										{translate|escape key="plugins.themes.redi.send"}
+									</a>
+								</li>
+								<li>
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="headerShortcuts__register">
+										{translate|escape key="plugins.themes.redi.register.reviewer"}
+									</a>
+								</li>
+							</ul>
+
 						</div>
-					</div>
-					<div class="headerShortcuts">
-						<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="headerShortcuts__send">
-							MBR:{translate|escape key="common.navigation.site"}
-						</a>
-						<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="headerShortcuts__register">
-							{translate|escape key="common.navigation.site"}
-						</a>
 					</div>
 					{if $currentContext}
 						{* Search form *}
@@ -75,6 +80,8 @@
 
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
+
+		{include file="frontend/components/redi_pastilla.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
 		{* Wrapper for page content and sidebars *}
 		{if $isFullWidth}

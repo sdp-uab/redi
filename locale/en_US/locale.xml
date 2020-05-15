@@ -15,5 +15,13 @@
 <locale name="en_US" full_name="U.S. English">
 	<message key="plugins.themes.redi.name">ReDi Theme</message>
 	<message key="plugins.themes.redi.description">This is the UAB organization default theme built as a child theme of the OJS 3.2 default theme.</message>
+
 	<message key="plugins.themes.redi.language">Language</message>
+	<message key="plugins.themes.redi.send">Send your article</message>
+	<message key="plugins.themes.redi.register.reviewer">Register as reviewer</message>
+
+	<message key="plugins.themes.redi.vol.abbr">Vol</message>
+	<message key="plugins.themes.redi.num.abbr">Num</message>
+
+	<message key="plugins.themes.redi.more">More information...</message>
 </locale>

@@ -21,10 +21,10 @@
 		{* Logo: journalLogo (aka. homepageImage) *}
 		<div class="headerTop__item journalLogo">
 			<a href="{$homeUrl}" class="is_img">
-				{if is_array($homepageImage)}
+				{if $homepageImage.uploadName}
 				<img class="journalLogo__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
 				{else}
-				<img class="journalLogo__image" src="https://dummyimage.com/460x100/777/ccc|escape:"url"}" alt="{'A header image that is still not set'|escape}" />
+				<img class="journalLogo__image" src="https://dummyimage.com/460x100/777/ccc" alt="'A header image that is still not set" />
 				{/if}
 			</a>
 		</div>

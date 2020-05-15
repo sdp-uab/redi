@@ -18,7 +18,6 @@
  * @uses $issue Issue Current issue
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
-{* include file="frontend/components/redi_pastilla.tpl" pageTitleTranslated=$currentJournal->getLocalizedName() *}
 
 <div class="page_index_journal">
 

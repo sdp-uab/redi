@@ -27,7 +27,7 @@
 				<a class="more_button"
 					href="{url op="view" page="issue"
 					path=$issue->getBestIssueId()}">
-					{translate key="plugins.themes.redi3.more"}
+					{translate key="plugins.themes.redi.more"}
 				</a>
 			</div>
 		{else}

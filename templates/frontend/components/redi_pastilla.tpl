@@ -12,17 +12,40 @@
  * @uses $currentTitleKey string Translation key for title of current page.
  *}
 
+{* Set some vars *}
+{$journalThumbnail=$currentContext->getLocalizedData('journalThumbnail')}
+{$dummyImage="https://dummyimage.com/380x460/777777/cccccc&text=380x460+-+Crop:+Bottom-Right"}
+{*debug*}
 
 <section class="banner pkp_structure_content" role="banner">
 	<div class="bannerVisual">
 		<a href="{$homeUrl}" class="is_img">
-			{if $journalThumbnail.uploadName}
+			{if isset($journalThumbnail)}
 			<img class="bannerVisual__image" src="{$publicFilesDir}/{$journalThumbnail.uploadName|escape:"url"}" {if $journalThumbnail.altText != ''}alt="{$journalThumbnail.altText|escape}"{/if}/>
 			{else}
-			<img class="journalLogo__image" src="https://dummyimage.com/535x500/777/ccc" alt="'A journal image that is still not set" />
+			<img class="journalLogo__image" src="{$dummyImage}" alt="'A journal image that is still not set" />
 			{/if}
 		</a>
 	</div>
+	{* Full-issue galleys *}
+	{if $issueGalleys}
+	<div class="bannerVisual hover">
+		<div class="redi-downlad-icon">
+			<section class="galleys">
+				<h4 class="sr-only">
+					{translate key="issue.tableOfContents"}
+				</h4>
+				<ul class="galleys_links">
+					{foreach from=$issueGalleys item=galley}
+						<li>
+							{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+						</li>
+					{/foreach}
+				</ul>
+			</section>
+		</div>
+	</div>
+	{/if}
 	<div class="bannerIssue">
 		{if $issue->getShowVolume() || $issue->getShowNumber() || $issue->getShowYear()}
 			{* <a class="issue_summary_title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
@@ -32,7 +55,6 @@
 					<span class="currentVolume">{translate key="plugins.themes.redi.vol.abbr"}. {$issue->getVolume()|escape}</span>
 				{/if}
 				{if $issue->getNumber() && $issue->getShowNumber()}
-					<!-- span class="current-issue-number">{translate key="plugins.themes.redi.num.abbr"} {$issue->getNumber()|escape}</span -->
 					<span class="currentNumber">#{$issue->getNumber()|escape}</span>
 				{/if}
 			</div>
@@ -56,89 +78,8 @@
 			{/strip}
 		</div>
 	</div>
-	<div class="bannerIssueHover">
+	<div class="bannerIssue hover">
 		{include file="frontend/components/redi_pas_desc.tpl"}
 	</div>
 
-</section>
-
- MBR
-
- <hr />
-
-<section class="redi-pastilla header container container-page">
-	<div class="row no-side-margin">
-		<div class="redi-box redi-cover col-md-4 redi-left">
-			<div class="redi-left">
-			  <a class="cover" href="{url op="view" path=$issue->getBestIssueId()}">
-				{if $homepageImage}
-					<div class="homepage-image">
-						<img class="archive_issue_cover" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" alt="{$homepageImageAltText|escape}">
-					</div>
-				{/if}
-			  </a>
-			</div>
-
-			{* Full-issue galleys *}
-			{if $issueGalleys}
-			<div class="redi-hover">
-				<div class="redi-downlad-icon">
-					<section class="galleys">
-						<h4 class="sr-only">
-							{translate key="issue.tableOfContents"}
-						</h4>
-						<ul class="galleys_links">
-							{foreach from=$issueGalleys item=galley}
-								<li>
-									{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-								</li>
-							{/foreach}
-						</ul>
-					</section>
-				</div>
-			</div>
-			{/if}
-		</div>
-
-		<div class="redi-box redi-text col-md-8">
-			<div class="redi-right">
-				{if $issue->getShowVolume() || $issue->getShowNumber() || $issue->getShowYear()}
-					{* <a class="issue_summary_title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
-					{strip}
-					<div class="redi-vol-num">
-						{if $issue->getVolume() && $issue->getShowVolume()}
-							<span class="current-issue-volume">{translate key="plugins.themes.redi.vol.abbr"}. {$issue->getVolume()|escape}</span>
-						{/if}
-						{if $issue->getNumber() && $issue->getShowNumber()}
-							<!-- span class="current-issue-number">{translate key="plugins.themes.redi.num.abbr"} {$issue->getNumber()|escape}</span -->
-							<span class="current-issue-number">#{$issue->getNumber()|escape}</span>
-						{/if}
-					</div>
-					<div class="redi-year">
-						{if $issue->getYear() && $issue->getShowYear()}
-							<span class="current-issue-year">{$issue->getYear()|escape}</span>
-						{/if}
-					</div>
-					{/strip}
-					<!-- /a -->
-				{/if}
-			  <div class="issue-title">
-				<header>
-					{strip}
-					{if $issue->getLocalizedTitle() && $issue->getShowTitle()}
-						<!-- a class="issue-title" href="{url op="view" path=$issue->getBestIssueId()}" -->
-						{$issue->getLocalizedTitle()|escape}
-						<!-- /a -->
-					{else}
-						{translate key="journal.currentIssue"}
-					{/if}
-					{/strip}
-				</header>
-			  </div>
-			</div>
-			<div class="redi-hover">
-				{include file="frontend/components/redi_pas_desc.tpl"}
-			</div>
-		</div>
-	</div>
 </section>

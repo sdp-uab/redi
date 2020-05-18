@@ -12,6 +12,7 @@
 
 {* assign var=issueCover value=$issue->getLocalizedCoverImageUrl() *}
 
+DESCRIPTION:
 {if $issue->hasDescription()}
 {* <img src="{$issue->getLocalizedCoverImageUrl()}" /> *}
 	<div class="description">

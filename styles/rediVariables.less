@@ -1,267 +1,7 @@
 // This LESS file will be parsed before the default stylesheet is compiled. Any
 // variables defined here will override those in the original stylesheet.
 //
-// You can also add additional CSS style rules if desired.
-
-
-
-.pkp_navigation_primary_wrapper {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-
-	.pkp_navigation_primary,
-	.headerShortcuts {
-		//width: 100%;
-		li {
-			//display: inline-block;
-		}
-	}
-	.headerShortcuts {
-		text-align: right;
-
-		a {
-			color: @color-icon !important;
-			text-decoration: none;
-			vertical-align: middle;
-		}
-
-		a::before {
-			.prefix-icon('\f059',@primary,@font-header);
-		}
-		.headerShortcuts__send::before {
-			content: "\f139";
-		}
-		.headerShortcuts__register::before {
-			content: "\f2bd";
-			font-size: @font-header - 3;
-		}
-	}
-}
-
-.cmp_article_list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.cmp_article_list > li {
-  flex: 1 0 50%;
-  box-sizing: border-box;
-  padding-right: 10px;
-  max-width: 50%;
-}
-
-// REVIEWS is always single column.
-.section:last-child .cmp_article_list > li {
-  flex: 1 0 100%;
-  max-width: 100%;
-}
-
-// Cover space
-.obj_issue_toc .cover {
-	width: 18%;
-}
-
-//Header
-.pkp_structure_head {
-	background-color: white;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 900;
-
-	&.reducedHeader {
-		background-color: white;
-
-		.pkp_head_wrapper {
-			.box-shadow(0px, 0px, 20px, 0.3);
-		}
-	}
-
-	.pkp_head_wrapper {
-		padding-top: 0;
-
-		//Header Top
-		.headerTop {
-			.pkp_site_name_wrapper {
-				display: flex;
-				flex-wrap: wrap-reverse;
-				flex-direction: row;
-				justify-content: space-between;
-				align-items: flex-start;
-
-				background-color: white;
-
-				.headerTop__item {
-					flex-basis:33%;
-
-					.is_img {
-						color: white;
-					}
-				}
-
-				.pkp_navigation_user_wrapper {
-					position: relative;
-					padding-right: 0;
-				}
-			}
-		}
-
-
-		// Header NavMenu
-		.pkp_site_nav_menu {
-			background-color: white;
-			border-top: 1px solid @color-line;
-
-			.pkp_navigation_user {
-				margin-top: 0;
-				padding-top: 0;
-
-				.task_count {
-					background-color: @primary;
-					color: contrast(@primary);
-				}
-			}
-		}
-	}
-}
-
-// Big header at home:
-.pkp_page_index {
-	.journalLogo.headerTop__item {
-		.is_img {
-			display: block;
-			height: @headerHeightBig;
-			transition: height 0.5s;
-
-			background-image: url('https://dummyimage.com/@headerWidthx@headerHeightBig/@primary/contrast(@primary)');
-			background-repeat: no-repeat;
-			background-size: 100% auto;
-
-		}
-		.reducedHeader {
-			height: @headerHeightSmall+10;
-			background-position: -10;
-		}
-	}
-}
-
-/* Responsive */
-
-@media( max-width: @screen-tablet ) {
-	// Tablets or smaller
-	// width: @screen-tablet-container;
-
-	// Hiding owners
-	.headerTop__item {
-
-		&.owners {
-			justify-content: center;
-			display: none;
-		}
-	}
-
-	// Single column:
-	.section .cmp_article_list > li {
-	  flex: 1 0 100%;
-	  max-width: 100%;
-	}
-
-	.banner {
-		flex-wrap: wrap;
-	}
-
-}
-
-@media( min-width: @screen-desktop ) {
-	// Desktops or bigger
-	// width: @screen-desktop-container;
-}
-
-@media( min-width: @screen-lg-desktop ) {
-	// Big desktops or bigger
-	// width: @screen-lg-desktop-container;
-}
-
-
-
-/** Typography **/
-
-.pkp_structure_main {
-	h2 {
-		font-family: @font-headingAlt;
-	}
-	.section h2 {
-		font-family: @font;
-		text-transform: uppercase;
-		font-weight: @regular;
-	    color: rgba(0,0,0,0.9);
-		color: @primary;
-	}
-}
-
-.obj_article_summary {
-	.title {
-		font-family: @font-body;
-	}
-	.meta .authors {
-		text-transform: uppercase;
-		font-size: @font-nano;
-		color: #7b7979;
-	}
-}
-
-.pkp_block {
-
-	padding-right: 0;
-
-	.title,
-	.blockTitle {
-		font-family: @font;
-		text-transform: uppercase;
-		font-size: @font-mili;
-		font-weight: @extra-bold;
-		color: rgba(0,0,0,0.8);
-	}
-}
-
-.obj_galley_link {
-	font-size: @font-nano;
-	font-weight: @extra-bold;
-	background: @bg-base;
-	color: contrast(@primary);
-}
-
-.obj_article_summary > .title a {
-	color: #444444;
-	font-weight: @semi-bold;
-}
-
-.pkp_head_wrapper {
-	a,
-	li > a {
-		&,
-		&:active,
-		&:hover,
-		&:visited {
-			color: @primary;
-			font-size: @font-nano;
-			text-transform: uppercase;
-			font-weight: @black;
-		}
-	}
-	.dropdown-menu {
-		li > a {
-			&,
-			&:active,
-			&:hover,
-			&:visited {
-				font-weight: @regular;
-			}
-		}
-	}
-}
+// You can also add additional CSS style rules if desired.¡
 
 // Search icon
 .userMenu__search::before {
@@ -313,10 +53,6 @@ a#languageToggleMenulanguageNav,
 .obj_galley_link {
 	line-height: @double;
 	padding: 0 @double/4;
-}
-
-.offsetContent {
-	margin-top:	@contentOffset+@headerHeightSmall;
 }
 
 
@@ -412,7 +148,33 @@ a#languageToggleMenulanguageNav,
 	}
 }
 
-/* Articles */
+/* Article List */
+
+.cmp_article_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cmp_article_list > li {
+  flex: 1 0 50%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  max-width: 50%;
+}
+
+// But... REVIEWS is always single column.
+.section:last-child .cmp_article_list > li {
+  flex: 1 0 100%;
+  max-width: 100%;
+}
+
+// Cover space
+.obj_issue_toc .cover {
+	width: 18%;
+}
+
+/** Article's page **/
+
 .pkp_page_article {
 
 	.pkp_structure_main:first-child:last-child {
@@ -538,6 +300,41 @@ a#languageToggleMenulanguageNav,
 		}
 	}
 }
+
+/** Decorations **/
+
+// Responsive
+.pkp_site_nav_toggle {
+	background-color: @primary;
+}
+
+.blockTitle,
+.pkp_block .title,
+.obj_issue_toc .section h2 {
+	border-bottom: 1px solid @color-line;
+	width: 100%;
+}
+
+// ANNOUNCEMENTS
+.pkp_page_index {
+	.cmp_announcements h2 {
+		border-bottom: 1px solid @color-line;
+	    clip: auto;
+	    position: inherit;
+	    left: 0px;
+	}
+}
+
+.highlight_first {
+	background-color: #EEE;
+}
+
+
+/** Mouse Hovers **/
+.obj_article_summary > .title a:hover {
+	color: @primary;
+}
+
 
 /* Hero image */
 //
@@ -676,39 +473,3 @@ a#languageToggleMenulanguageNav,
 //   display: block;
 //   text-align: right;
 // }
-
-
-
-/** Decorations **/
-
-// Responsive
-.pkp_site_nav_toggle {
-	background-color: @primary;
-}
-
-.blockTitle,
-.pkp_block .title,
-.obj_issue_toc .section h2 {
-	border-bottom: 1px solid @color-line;
-	width: 100%;
-}
-
-// ANNOUNCEMENTS
-.pkp_page_index {
-	.cmp_announcements h2 {
-		border-bottom: 1px solid @color-line;
-	    clip: auto;
-	    position: inherit;
-	    left: 0px;
-	}
-}
-
-.highlight_first {
-	background-color: #EEE;
-}
-
-
-/** Mouse Hovers **/
-.obj_article_summary > .title a:hover {
-	color: @primary;
-}

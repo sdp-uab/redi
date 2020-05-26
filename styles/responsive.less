@@ -1,0 +1,41 @@
+// This LESS file will be parsed before the default stylesheet is compiled. Any
+// variables defined here will override those in the original stylesheet.
+//
+// You can also add additional CSS style rules if desired.
+
+/* Responsive */
+
+@media( max-width: @screen-tablet ) {
+	// Tablets or smaller
+	// width: @screen-tablet-container;
+
+	// Hiding owners
+	.headerTop__item {
+
+		&.owners {
+			justify-content: center;
+			display: none;
+		}
+	}
+
+	// Single column:
+	.section .cmp_article_list > li {
+	  flex: 1 0 100%;
+	  max-width: 100%;
+	}
+
+	.banner {
+		flex-wrap: wrap;
+	}
+
+}
+
+@media( min-width: @screen-desktop ) {
+	// Desktops or bigger
+	// width: @screen-desktop-container;
+}
+
+@media( min-width: @screen-lg-desktop ) {
+	// Big desktops or bigger
+	// width: @screen-lg-desktop-container;
+}

@@ -70,6 +70,8 @@ class rediThemePlugin extends ThemePlugin {
 											'styles/reset.less',
 											'styles/layout.less',
 											'styles/components/header.less',
+											'styles/responsive.less',
+											'styles/typography.less',
 											'styles/rediVariables.less',
 											'styles/objects/announcement_summary.less')));
 

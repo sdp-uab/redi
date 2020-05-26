@@ -1,0 +1,81 @@
+// This LESS file will be parsed before the default stylesheet is compiled. Any
+// variables defined here will override those in the original stylesheet.
+//
+// You can also add additional CSS style rules if desired.¡
+
+/** Typography **/
+
+.pkp_structure_main {
+	h2 {
+		font-family: @font-headingAlt;
+	}
+	.section h2 {
+		font-family: @font;
+		text-transform: uppercase;
+		font-weight: @regular;
+	    color: rgba(0,0,0,0.9);
+		color: @primary;
+	}
+}
+
+.obj_article_summary {
+	.title {
+		font-family: @font-body;
+	}
+	.meta .authors {
+		text-transform: uppercase;
+		font-size: @font-nano;
+		color: #7b7979;
+	}
+}
+
+.pkp_block {
+
+	padding-right: 0;
+
+	.title,
+	.blockTitle {
+		font-family: @font;
+		text-transform: uppercase;
+		font-size: @font-mili;
+		font-weight: @extra-bold;
+		color: rgba(0,0,0,0.8);
+	}
+}
+
+.obj_galley_link {
+	font-size: @font-nano;
+	font-weight: @extra-bold;
+	background: @bg-base;
+	color: contrast(@primary);
+}
+
+.obj_article_summary > .title a {
+	color: #444444;
+	font-weight: @semi-bold;
+}
+
+.pkp_head_wrapper {
+	a,
+	li > a {
+		&,
+		&:active,
+		&:hover,
+		&:visited {
+			color: @primary;
+			font-size: @font-nano;
+			text-transform: uppercase;
+			font-weight: @black;
+		}
+	}
+	.dropdown-menu {
+		li > a {
+			&,
+			&:active,
+			&:hover,
+			&:visited {
+				font-weight: @regular;
+			}
+		}
+	}
+}

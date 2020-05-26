@@ -19,14 +19,25 @@
 		</div>
 
 		{* Logo: journalLogo (aka. homepageImage) *}
+		{$homepageImageBackground="{$publicFilesDir}/{$homepageImage.uploadName}"}
+		{* $homepageImageBackground="https://dummyimage.com/460x50/5A71A6/cccccc" *}
 		<div class="headerTop__item journalLogo">
+			{if $requestedPage|escape|default:"index" == 'index' }
+				<a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a>
+
+<!--				<a href="{$homeUrl}" class="is_img">
+					{if $homepageImage.uploadName}
+					<img class="journalLogo__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
+					{else}
+					<img class="journalLogo__image" src="https://dummyimage.com/460x100/777/ccc" alt="'A header image that is still not set" />
+					{/if}
+				</a>
+-->
+			{else}
 			<a href="{$homeUrl}" class="is_img">
-				{if $homepageImage.uploadName}
-				<img class="journalLogo__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
-				{else}
-				<img class="journalLogo__image" src="https://dummyimage.com/460x100/777/ccc" alt="'A header image that is still not set" />
-				{/if}
+				<img class="journalLogo__image" src="https://dummyimage.com/460x50/5A71A6/cccccc" alt="'A header image that is still not set" />
 			</a>
+			{/if}
 		</div>
 
 		{* Nav: menuUser (topRight) *}

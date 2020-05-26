@@ -76,12 +76,14 @@
 					{/if}
 				</nav>
 
-
-
 			</div><!-- .pkp_head_wrapper -->
 		</header><!-- .pkp_structure_head -->
 
-		{include file="frontend/components/redi_pastilla.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
+		<div class="offsetContent"></div>
+		{* Banner only shown in journal's homepage *}
+		{if $requestedPage|escape|default:"index" == 'index' }
+			{include file="frontend/components/redi_pastilla.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
+		{/if}
 
 		{* Wrapper for page content and sidebars *}
 		{if $isFullWidth}

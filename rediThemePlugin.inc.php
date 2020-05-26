@@ -65,8 +65,17 @@ class rediThemePlugin extends ThemePlugin {
 		//DEBUG: print_r($this->parent);
 
 		$this->modifyStyle('stylesheet',
-					array('addLess' => array('styles/rediVariables.less',
-											 'styles/objects/announcement_summary.less')));
+					array('addLess' => array('styles/variables.less',
+											'styles/mixins.less',
+											'styles/reset.less',
+											'styles/layout.less',
+											'styles/components/header.less',
+											'styles/rediVariables.less',
+											'styles/objects/announcement_summary.less')));
+
+		// JS libraries
+		// $this->addScript('bsScrollspy', 'js/lib/bootstrap/scrollspy.js');
+		$this->addScript('redi', 'js/headerEffect.js');
 
 		// Additional theme information
 		HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
@@ -108,6 +117,8 @@ class rediThemePlugin extends ThemePlugin {
 
 		// Template path:
 		$templateMgr->assign('rediThemePath', $request->getBaseUrl() . '/' . $this->getPluginPath());
+
+		$templateMgr->assign('rediHeaderLogoPath', $request->getBaseUrl() . '/' . $this->getPluginPath());
 	}
 
 }

@@ -1,7 +1,13 @@
-// This LESS file will be parsed before the default stylesheet is compiled. Any
-// variables defined here will override those in the original stylesheet.
-//
-// You can also add additional CSS style rules if desired.¡
+/**
+ * @file  plugins/themes/redi/styles/typography.less
+ *
+ * Copyright (c) 2020 Marc Bria Ramírez - Universitat Autònoma de Barcelona
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Global styles about .
+ */
 
 /** Typography **/
 
@@ -43,12 +49,8 @@
 	}
 }
 
-.obj_galley_link {
-	font-size: @font-nano;
-	font-weight: @extra-bold;
-	background: @bg-base;
-	color: contrast(@primary);
-}
+
+/** Links **/
 
 .obj_article_summary > .title a {
 	color: #444444;
@@ -78,4 +80,15 @@
 			}
 		}
 	}
+}
+
+.pkp_site_nav_menu a,
+.pkp_navigation_user > li > a,
+.pkp_navigation_user > li.in_focus > a {
+	color: @primary;
+}
+
+// Mouse Hovers
+.obj_article_summary > .title a:hover {
+	color: @primary;
 }

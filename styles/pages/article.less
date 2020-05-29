@@ -1,0 +1,139 @@
+/**
+ * @file  plugins/themes/default/styles/pages/indexJournal.less
+ *
+ * Copyright (c) 2020 Marc Bria Ramírez - Universitat Autònoma de Barcelona
+ * Copyright (c) 2014-2020 Simon Fraser University
+ * Copyright (c) 2003-2020 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @brief Styles applying to the article's summary page.
+ * @link templates/frontend/pages/article.tpl
+ */
+ 
+ /** Article's page **/
+
+ .pkp_page_article {
+
+ 	.pkp_structure_main:first-child:last-child {
+ 		margin-top: 0 !important;
+ 	}
+
+ 	.pkp_structure_main {
+ 		margin-top: 0;
+ 		width: auto;
+ 	}
+ 	.obj_article_details {
+
+ 		// Both sides:
+ 		.item {
+ 			padding-top: 0;
+
+ 			h2 {
+ 				font-size: @font-bump;
+ 				font-weight: @bold;
+ 				line-height: @font-bump;
+ 				text-transform: uppercase;
+ 				color: @color-title;
+ 				border-bottom: 1px solid @color-line;
+ 			}
+ 		}
+
+ 		// Content side:
+ 		.main_entry {
+ 			width: 66%;
+
+ 			.page_title {
+ 				font-size: @font-kilo;
+ 				font-weight: @extra-bold;
+ 				line-height: @font-kilo;
+ 				text-transform: uppercase;
+
+ 				padding: 0px 30px 30px 30px;
+ 				margin: 0;
+ 			}
+
+ 			ul.authors {
+ 				display: inline;
+
+ 				li {
+ 					display:inline;
+ 					&::after {
+ 						content: " | ";
+ 					}
+ 					&:last-child::after {
+ 						content: "";
+ 					}
+ 				}
+ 				.name {
+ 					display: inline;
+
+ 					color: @primary;
+ 					font-size: @font-bump;
+ 					font-weight: @semi-bold;
+ 					text-transform: uppercase;
+ 				}
+ 				.affiliation {
+ 					display: none;
+ 				}
+ 				.orcid {
+ 					display: inline;
+
+ 					a {
+ 						visibility: hidden;
+ 						width: @font-header;
+ 						height: @font-header;
+ 						display: inline-block;
+ 						vertical-align: bottom;
+ 					}
+ 					a::before {
+ 						/* .prefix-icon('\f8d2',@primary,@font-header); */
+ 						.prefix-icon('\f059',@primary,@font-header);
+ 						visibility: visible;
+ 						display: inline;
+ 					}
+ 				}
+ 			}
+
+ 			.item {
+ 				&.keywords,
+ 				&.abstract {
+ 					border-left: 8px solid @color-line;
+ 					margin-left: 30px;
+
+ 					font-family: @font-body-article;
+
+ 					padding-bottom: 0;
+ 					margin-bottom: 30px;
+ 				}
+
+ 				&.keywords h2 {
+ 					display: block;
+ 					font-size: @font-bump;
+ 					margin-bottom: 20px;
+ 				}
+ 			}
+ 		}
+
+ 		// Sidebar:
+ 		.entry_details {
+ 			width: 33%;
+
+ 			.cover_image {
+ 				img {
+ 					width: 50%;
+ 				}
+ 			}
+ 			.item.doi {
+ 				.label {
+ 						display: block;
+ 				}
+ 			}
+ 			.citation_display {
+ 				.citation_formats {
+ 					border: 0;
+ 					background-color: #F4F4F4;
+ 				}
+ 			}
+ 		}
+ 	}
+ }

@@ -41,7 +41,7 @@
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
 		<!-- section class="cmp_announcements highlight_first" -->
-		<section class="section">
+		<section class="section announcement">
 			<a id="homepageAnnouncements"></a>
 			<h2>
 				{translate key="announcement.announcements"}
@@ -61,7 +61,7 @@
 							</a>
 						</h4>
 						<div class="date">
-							{$announcement->getDatePosted()}
+							{translate key="submissions.published"}: {$announcement->getDatePosted()}
 						</div>
 					</article>
 				{/if}

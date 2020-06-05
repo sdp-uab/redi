@@ -30,7 +30,7 @@
 		{* Header *}
 		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
 			<div class="pkp_head_wrapper">
-				{include file="frontend/components/redi_headerImage.tpl"}
+				{include file="frontend/components/redi_headerTop.tpl"}
 
 				<div class="pkp_head_responsive">
 					<button class="pkp_site_nav_toggle">

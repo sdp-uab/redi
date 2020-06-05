@@ -118,21 +118,26 @@
 
 /** BIG HEADER (home): **/
 
+.journalLogo.headerTop__item {
+	.is_img {
+		display: block;
+		height: @headerHeightSmall;
+
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		/* background-size: cover; */
+		background-position: top;
+	}
+}
+
 .pkp_page_index {
 	.journalLogo.headerTop__item {
 		.is_img {
-			display: block;
 			height: @headerHeightBig;
 			transition: height 0.5s;
-
-			background-image: url('https://dummyimage.com/@headerWidthx@headerHeightBig/@primary/contrast(@primary)');
-			background-repeat: no-repeat;
-			background-size: 100% auto;
-
 		}
 		.reducedHeader {
-			height: @headerHeightSmall+10;
-			background-position: -10;
+			height: @headerHeightSmall;
 		}
 	}
 }

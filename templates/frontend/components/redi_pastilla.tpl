@@ -13,17 +13,18 @@
  *}
 
 {* Set some vars *}
-{$journalThumbnail=$currentContext->getLocalizedData('journalThumbnail')}
 {$dummyImage="https://dummyimage.com/380x460/777777/cccccc&text=380x460+-+Crop:+Bottom-Right"}
 {*debug*}
+
+<!-- a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a -->
 
 <section class="banner pkp_structure_content" role="banner">
 	<div class="bannerVisual">
 		<a href="{$homeUrl}" class="is_img">
-			{if isset($journalThumbnail)}
-			<img class="bannerVisual__image" src="{$publicFilesDir}/{$journalThumbnail.uploadName|escape:"url"}" {if $journalThumbnail.altText != ''}alt="{$journalThumbnail.altText|escape}"{/if}/>
+			{if isset($homepageImage)}
+			<img class="bannerVisual__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
 			{else}
-			<img class="journalLogo__image" src="{$dummyImage}" alt="'A journal image that is still not set" />
+			<img class="bannerVisual__image" src="{$dummyImage}" alt="'A journal image that is still not set" />
 			{/if}
 		</a>
 	</div>

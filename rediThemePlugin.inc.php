@@ -69,12 +69,12 @@ class rediThemePlugin extends ThemePlugin {
 											'styles/mixins.less',
 											'styles/reset.less',
 											'styles/layout.less',
-											'styles/responsive.less',
 											'styles/typography.less',
 											'styles/decoration.less',
 											'styles/pages/article.less',
 											'styles/components/header.less',
-											'styles/objects/announcement_summary.less')));
+											'styles/objects/announcement_summary.less',
+											'styles/responsive.less')));
 
 		// JS libraries
 		// $this->addScript('bsScrollspy', 'js/lib/bootstrap/scrollspy.js');

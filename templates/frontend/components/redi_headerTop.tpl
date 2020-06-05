@@ -6,6 +6,17 @@
 	{/if}
 {/capture}
 
+{* Set some vars *}
+{$headerTopImage=$currentContext->getLocalizedData('journalThumbnail')}
+{$headerTopImagePath="https://dummyimage.com/460x50/5A71A6/cccccc"}
+{if isset($headerTopImage.uploadName)}
+	{$headerTopImagePath="{$publicFilesDir}/{$headerTopImage.uploadName}"}
+{/if}
+{$headerTopImageAlt="A placeholder for your top image/logo that is still not set"}
+{if $headerTopImage.altText != ''}
+	{$headerTopImageAlt=$headerTopImage.altText}
+{/if}
+
 <div class="headerTop">
 	<div class="pkp_site_name_wrapper">
 		{* Owners: ReDi & UAB *}
@@ -18,26 +29,10 @@
 			</a>
 		</div>
 
-		{* Logo: journalLogo (aka. homepageImage) *}
-		{$homepageImageBackground="{$publicFilesDir}/{$homepageImage.uploadName}"}
-		{* $homepageImageBackground="https://dummyimage.com/460x50/5A71A6/cccccc" *}
+		{* Top Image (aka. homepageImage) *}
+		{$headerTopImagePath="{$publicFilesDir}/{$headerTopImage.uploadName}"}
 		<div class="headerTop__item journalLogo">
-			{if $requestedPage|escape|default:"index" == 'index' }
-				<a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a>
-
-<!--				<a href="{$homeUrl}" class="is_img">
-					{if $homepageImage.uploadName}
-					<img class="journalLogo__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
-					{else}
-					<img class="journalLogo__image" src="https://dummyimage.com/460x100/777/ccc" alt="'A header image that is still not set" />
-					{/if}
-				</a>
--->
-			{else}
-			<a href="{$homeUrl}" class="is_img">
-				<img class="journalLogo__image" src="https://dummyimage.com/460x50/5A71A6/cccccc" alt="'A header image that is still not set" />
-			</a>
-			{/if}
+			<a href="{$homeUrl}" role="img" class="is_img" style="background-image: url('{$headerTopImagePath}');" aria-label="{$headerTopImageAlt|escape}"></a>
 		</div>
 
 		{* Nav: menuUser (topRight) *}

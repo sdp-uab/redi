@@ -13,13 +13,29 @@
  *}
 
 {* Set some vars *}
-{$dummyImage="https://dummyimage.com/380x460/777777/cccccc&text=380x460+-+Crop:+Bottom-Right"}
+{$homepageImagePath="https://dummyimage.com/380x460/777777/cccccc&text=380x460+-+Crop:+Bottom-Right"}
+{if isset($homepageImage.uploadName)}
+	{$homepageImagePath="{$publicFilesDir}/{$homepageImage.uploadName}"}
+{/if}
+{$homepageImageAlt="A placeholder for your homepage image/logo that is still not set."}
+{if $homepageImage.altText != ''}
+	{$homepageImageAlt=$homepageImage.altText}
+{/if}
+
 {*debug*}
 
 <!-- a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a -->
 
 <section class="banner pkp_structure_content" role="banner">
+
+	{* Banner Image (aka. homepageImage) *}
+	{$headerTopImagePath="{$publicFilesDir}/{$headerTopImage.uploadName}"}
 	<div class="bannerVisual">
+		<a href="{$homeUrl}" role="img" class="is_img" style="background-image: url('{$homepageImagePath}');" aria-label="{$homepageImageAlt|escape}"></a>
+	</div>
+
+{*	MBR: Keeping this, just in case we need to move back (from background to an image again).
+	<!-- div class="bannerVisual">
 		<a href="{$homeUrl}" class="is_img">
 			{if isset($homepageImage)}
 			<img class="bannerVisual__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
@@ -27,7 +43,9 @@
 			<img class="bannerVisual__image" src="{$dummyImage}" alt="'A journal image that is still not set" />
 			{/if}
 		</a>
-	</div>
+	</div -->
+*}
+
 	{* Full-issue galleys *}
 	{if $issueGalleys}
 	<div class="bannerVisual hover">

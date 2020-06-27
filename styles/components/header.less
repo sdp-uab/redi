@@ -154,8 +154,16 @@
 	.bannerVisual {
 		flex-basis: 33%;
 		width: 100%;
-		height: 39vh;
+		height: @banner-height;
 		overflow: hidden;
+
+		.is_img {
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+			background-size: cover;
+			background-position: 50% 50%;
+		}
 	}
 
 	.bannerIssue {

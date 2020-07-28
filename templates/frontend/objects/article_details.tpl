@@ -144,8 +144,7 @@
 			{if !empty($publication->getLocalizedData('keywords'))}
 			<section class="item keywords">
 				<h2 class="label">
-					{capture assign=translatedKeywords}{translate key="article.subject"}{/capture}
-					{translate key="semicolon" label=$translatedKeywords}
+					{translate key="article.subject" label="article.subject"}
 				</h2>
 				<span class="value">
 					{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
@@ -155,7 +154,25 @@
 			</section>
 			{/if}
 
-			{call_hook name="Templates::Article::Main"}
+			[[MBR{call_hook name="Templates::Article::Main"}MBR]]
+
+			{* References *}
+			{if $parsedCitations || $publication->getData('citationsRaw')}
+				<section class="item references">
+					<h2 class="label">
+						{translate key="submission.citations"}
+					</h2>
+					<div class="value">
+						{if $parsedCitations}
+							{foreach from=$parsedCitations item="parsedCitation"}
+								<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
+							{/foreach}
+						{else}
+							{$publication->getData('citationsRaw')|escape|nl2br}
+						{/if}
+					</div>
+				</section>
+			{/if}
 
 			{* Author biographies *}
 			{assign var="hasBiographies" value=0}
@@ -191,24 +208,6 @@
 							</section>
 						{/if}
 					{/foreach}
-				</section>
-			{/if}
-
-			{* References *}
-			{if $parsedCitations || $publication->getData('citationsRaw')}
-				<section class="item references">
-					<h2 class="label">
-						{translate key="submission.citations"}
-					</h2>
-					<div class="value">
-						{if $parsedCitations}
-							{foreach from=$parsedCitations item="parsedCitation"}
-								<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
-							{/foreach}
-						{else}
-							{$publication->getData('citationsRaw')|escape|nl2br}
-						{/if}
-					</div>
 				</section>
 			{/if}
 

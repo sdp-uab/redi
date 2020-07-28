@@ -9,7 +9,7 @@
  * @brief Styles applying to the article's summary page.
  * @link templates/frontend/pages/article.tpl
  */
- 
+
  /** Article's page **/
 
  .pkp_page_article {
@@ -24,31 +24,41 @@
  	}
  	.obj_article_details {
 
+		// Top padding:
+		.row {
+    		margin-top: @separator;
+		}
+
  		// Both sides:
  		.item {
- 			padding-top: 0;
+ 			padding: 0 @triple @quadruple @triple;
 
- 			h2 {
+ 			h2,h3 {
  				font-size: @font-bump;
  				font-weight: @bold;
  				line-height: @font-bump;
  				text-transform: uppercase;
- 				color: @color-title;
+				letter-spacing: @letter-spacing;
+				color: @color-title;
+
+				padding-bottom: @base/2;
  				border-bottom: 1px solid @color-line;
  			}
  		}
 
  		// Content side:
  		.main_entry {
- 			width: 66%;
+ 			width: @widthLeft;
 
  			.page_title {
  				font-size: @font-kilo;
- 				font-weight: @extra-bold;
+ 				font-weight: @black;
  				line-height: @font-kilo;
  				text-transform: uppercase;
+				letter-spacing: @letter-spacing;
+				color: @color-title;
 
- 				padding: 0px 30px 30px 30px;
+ 				padding: 0px @separator @separator - @base @separator;
  				margin: 0;
  			}
 
@@ -87,7 +97,8 @@
  					}
  					a::before {
  						/* .prefix-icon('\f8d2',@primary,@font-header); */
- 						.prefix-icon('\f059',@primary,@font-header);
+						/* .prefix-icon('\f059',@primary,@font-header); */
+						.prefix-academicon('\e9d9',@primary,@font-lead);
  						visibility: visible;
  						display: inline;
  					}
@@ -95,28 +106,32 @@
  			}
 
  			.item {
- 				&.keywords,
+				p,
+				&.keywords,
  				&.abstract {
- 					border-left: 8px solid @color-line;
- 					margin-left: 30px;
-
  					font-family: @font-body-article;
+					font-size: @font-sml;
+					line-height: @line-sml;
+					margin: 0;
+ 				}
 
+				&.keywords,
+ 				&.abstract {
  					padding-bottom: 0;
- 					margin-bottom: 30px;
+ 					margin-bottom: @separator;
  				}
 
  				&.keywords h2 {
  					display: block;
  					font-size: @font-bump;
- 					margin-bottom: 20px;
+ 					margin-bottom: @double;
  				}
  			}
  		}
 
  		// Sidebar:
  		.entry_details {
- 			width: 33%;
+ 			width: @widthRight;
 
  			.cover_image {
  				img {

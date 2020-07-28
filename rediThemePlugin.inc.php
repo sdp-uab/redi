@@ -37,12 +37,13 @@ class rediThemePlugin extends ThemePlugin {
 			$this->removeStyle('fontLato');
 			$this->removeStyle('fontLora');
 			$this->removeStyle('fontLoraOpenSans');
-			$this->removeStyle('fontNotoSerif');
-			$this->removeStyle('fontNotoSerif');
-			$this->removeStyle('fontNotoSerif');
-			$this->removeStyle('fontNotoSerif');
-			$this->removeStyle('fontNotoSerif');
 		}
+
+		$this->addStyle(
+			'academicons',
+			'https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css',
+			array('baseUrl' => '')
+		);
 
 		$this->addStyle(
 			'fontBarlowSemiCondensed',
@@ -73,6 +74,7 @@ class rediThemePlugin extends ThemePlugin {
 											'styles/decoration.less',
 											'styles/pages/article.less',
 											'styles/components/header.less',
+											'styles/components/breadcrumbs.less',
 											'styles/objects/announcement_summary.less',
 											'styles/responsive.less')));
 

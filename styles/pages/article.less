@@ -21,6 +21,29 @@
  	.pkp_structure_main {
  		margin-top: 0;
  		width: auto;
+
+		/* Recommended article's plugin won't be much used and the html of
+		the plugin is not great, but... just in case */
+		#articlesBySameAuthorList {
+			h3 {
+				padding: 0;
+				margin: 0;
+
+				font-size: @font-bump;
+				font-weight: @bold;
+				line-height: @font-bump;
+				text-transform: uppercase;
+				letter-spacing: @letter-spacing;
+				color: @color-title;
+
+				padding-bottom: @base/2;
+			}
+			ul {
+				font-family: @font-body-article;
+				font-size: @font-sml;
+				line-height: @line-sml;
+			}
+		}
  	}
  	.obj_article_details {
 
@@ -42,7 +65,6 @@
 				color: @color-title;
 
 				padding-bottom: @base/2;
- 				border-bottom: 1px solid @color-line;
  			}
  		}
 
@@ -53,12 +75,12 @@
  			.page_title {
  				font-size: @font-kilo;
  				font-weight: @black;
- 				line-height: @font-kilo;
+ 				line-height: @quadruple;
  				text-transform: uppercase;
 				letter-spacing: @letter-spacing;
 				color: @color-title;
 
- 				padding: 0px @separator @separator - @base @separator;
+ 				padding: 0px @separator @separator @separator;
  				margin: 0;
  			}
 
@@ -99,33 +121,54 @@
  						/* .prefix-icon('\f8d2',@primary,@font-header); */
 						/* .prefix-icon('\f059',@primary,@font-header); */
 						.prefix-academicon('\e9d9',@primary,@font-lead);
+						color: @color-line;
  						visibility: visible;
  						display: inline;
+
  					}
  				}
  			}
 
  			.item {
+
+				.label {
+					margin: 0 0 @double 0;
+					padding: 0;
+				}
+
 				p,
 				&.keywords,
  				&.abstract {
  					font-family: @font-body-article;
 					font-size: @font-sml;
 					line-height: @line-sml;
-					margin: 0;
  				}
 
-				&.keywords,
- 				&.abstract {
- 					padding-bottom: 0;
- 					margin-bottom: @separator;
- 				}
+				p {
+					margin: 0;
+					padding-right: @double;
+				}
 
  				&.keywords h2 {
  					display: block;
- 					font-size: @font-bump;
- 					margin-bottom: @double;
  				}
+
+				&.references,
+				&.author_bios {
+					.value {
+						max-height: 40vh;
+						overflow-y: auto;
+						scrollbar-width: thin;
+					}
+				}
+
+				&.author_bios {
+					h3.label {
+						font-weight: @medium;
+						color: @primary;
+
+					}
+				}
  			}
  		}
 
@@ -133,16 +176,34 @@
  		.entry_details {
  			width: @widthRight;
 
- 			.cover_image {
- 				img {
- 					width: 50%;
- 				}
- 			}
- 			.item.doi {
- 				.label {
- 						display: block;
- 				}
- 			}
+			.item {
+				padding-bottom: @triple;
+
+				h2,
+				h3 {
+					font-size: @font-nano;
+				    text-transform: uppercase;
+				    font-weight: @black;
+				    letter-spacing: @letter-spacing;
+				    color: @color-icon;
+				    text-decoration: none;
+					margin-bottom: @base;
+					border-bottom: 1px solid @color-line;
+				}
+				&.cover_image {
+					padding-bottom: 0;
+
+	 				img {
+	 					width: 50%;
+						padding-bottom: @triple;
+	 				}
+	 			}
+				&.doi {
+	 				.label {
+	 					display: block;
+	 				}
+	 			}
+			}
  			.citation_display {
  				.citation_formats {
  					border: 0;

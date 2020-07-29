@@ -79,7 +79,6 @@
 		</div>
 	{/if}
 
-
 	<div class="row">
 		<div class="main_entry">
 			<h1 class="page_title">
@@ -154,7 +153,7 @@
 			</section>
 			{/if}
 
-			[[MBR{call_hook name="Templates::Article::Main"}MBR]]
+			{* MBR - Moved to sidebar: call_hook name="Templates::Article::Main" *}
 
 			{* References *}
 			{if $parsedCitations || $publication->getData('citationsRaw')}
@@ -190,6 +189,7 @@
 							{translate key="submission.authorBiography"}
 						{/if}
 					</h2>
+					<div class="value">
 					{foreach from=$publication->getData('authors') item=author}
 						{if $author->getLocalizedData('biography')}
 							<section class="sub_item">
@@ -208,14 +208,17 @@
 							</section>
 						{/if}
 					{/foreach}
+					</div>
 				</section>
 			{/if}
 
 		</div><!-- .main_entry -->
 
+		{** SIDE BAR **}
+
 		<div class="entry_details">
 
-			{* Article/Issue cover image *}
+			{* Article cover image *}
 			{if $publication->getLocalizedData('coverImage') || ($issue && $issue->getLocalizedCoverImage())}
 				<div class="item cover_image">
 					<div class="sub_item">
@@ -225,10 +228,6 @@
 								src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
 								alt="{$coverImage.altText|escape|default:''}"
 							>
-						{else}
-							<a href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-								<img src="{$issue->getLocalizedCoverImageUrl()|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
-							</a>
 						{/if}
 					</div>
 				</div>
@@ -269,6 +268,7 @@
 				</div>
 			{/if}
 
+			{* Publishing dates (including versions) *}
 			{if $publication->getData('datePublished')}
 			<div class="item published">
 				<section class="sub_item">
@@ -361,35 +361,7 @@
 				</div>
 			{/if}
 
-			{* Issue article appears in *}
-			{if $issue || $section}
-				<div class="item issue">
-
-					{if $issue}
-						<section class="sub_item">
-							<h2 class="label">
-								{translate key="issue.issue"}
-							</h2>
-							<div class="value">
-								<a class="title" href="{url page="issue" op="view" path=$issue->getBestIssueId()}">
-									{$issue->getIssueIdentification()}
-								</a>
-							</div>
-						</section>
-					{/if}
-
-					{if $section}
-						<section class="sub_item">
-							<h2 class="label">
-								{translate key="section.section"}
-							</h2>
-							<div class="value">
-								{$section->getLocalizedTitle()|escape}
-							</div>
-						</section>
-					{/if}
-				</div>
-			{/if}
+			{call_hook name="Templates::Article::Main"}
 
 			{* PubIds (requires plugins) *}
 			{foreach from=$pubIdPlugins item=pubIdPlugin}
@@ -434,7 +406,6 @@
 							</a>
 						{/if}
 					{/if}
-					{$currentContext->getLocalizedData('licenseTerms')}
 				</div>
 			{/if}
 

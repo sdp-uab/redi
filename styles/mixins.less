@@ -14,7 +14,7 @@
 
 /* Calling:
 .cssClass {
- .box-shadow(5px, 5px, 6px, 0.5);
+ .prefix-icon('\f059',red,24px);
 }
 */
 
@@ -24,8 +24,6 @@
 	content: @content;			/* question mark */
 	color: @color;
 	font: normal normal normal @font-size/1 FontAwesome;
-		font-size: @font-size;
-		line-height: 1;
 	font-size: @font-size;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -47,8 +45,6 @@
 	content: @content;			/* question mark */
 	color: @color;
 	font: normal normal normal @font-size/1 Academicons;
-		font-size: @font-size;
-		line-height: 1;
 	font-size: @font-size;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
@@ -59,7 +55,7 @@
 	right: 0;
 	width: @triple;
 	height: @triple;
-	line-height: @font-size + 2;
+	line-height: @font-size;
 	text-align: center;
 	vertical-align: middle;
 }
@@ -74,12 +70,12 @@
 .opacity (@opacity: 0.5) {
 	-webkit-opacity: 	@opacity;
 	-moz-opacity: 		@opacity;
-	opacity: 		@opacity;
+	opacity: 			@opacity;
 }
 
 /* Calling:
 .cssClass {
-	.opacity(0.7);
+	.allAnchors(@primary);
 }
 */
 
@@ -94,5 +90,23 @@
 		font-size: @font-size;
 		text-transform: @text-transform;
 		font-weight: @font-weight;
+	}
+}
+
+/* Calling:
+.cssClass {
+	.grayscaleTillHover();
+}
+*/
+
+// Crossbrowser image color conversion to grayscale.
+.grayscaleTillHover () {
+	& {
+		-webkit-filter: grayscale(1);
+		filter: grayscale(1);
+	}
+	&:hover {
+		-webkit-filter: grayscale(0);
+	    filter: grayscale(0);
 	}
 }

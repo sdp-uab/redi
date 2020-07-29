@@ -91,6 +91,7 @@
  					display:inline;
  					&::after {
  						content: " | ";
+						padding-right: @base;
  					}
  					&:last-child::after {
  						content: "";
@@ -113,9 +114,10 @@
  					a {
  						visibility: hidden;
  						width: @font-header;
- 						height: @font-header;
+						height: @line-lead-compress;
  						display: inline-block;
  						vertical-align: bottom;
+						color: white;
  					}
  					a::before {
  						/* .prefix-icon('\f8d2',@primary,@font-header); */
@@ -159,6 +161,9 @@
 						max-height: 40vh;
 						overflow-y: auto;
 						scrollbar-width: thin;
+						.sub_item {
+							margin-bottom: @base;
+						}
 					}
 				}
 
@@ -166,7 +171,7 @@
 					h3.label {
 						font-weight: @medium;
 						color: @primary;
-
+						margin-bottom: 0;
 					}
 				}
  			}
@@ -178,6 +183,12 @@
 
 			.item {
 				padding-bottom: @triple;
+
+				p,
+				.value {
+					font-size: @font-mili;
+					line-height: @double;
+				}
 
 				h2,
 				h3 {
@@ -203,13 +214,40 @@
 	 					display: block;
 	 				}
 	 			}
+	 			&.citation {
+					.citation_display {
+						#citationOutput {
+							font-size: @font-nano;
+							line-height: @font-bump;
+						}
+		 				.citation_formats {
+		 					border: 0;
+		 					background-color: #F4F4F4;
+
+							.citation_formats_button {
+								font-size: @font-nano;
+							}
+		 				}
+					}
+	 			}
+				&.downloads_chart {
+					.value {
+						padding-top: @base;
+					}
+				}
+				&.copyright {
+					p {
+						margin:0;
+						padding:0 0 @base 0;
+					}
+				}
+				&.addthis {
+					.grayscaleTillHover();
+					.addthis_counter {
+						padding-left: @base;
+					}
+				}
 			}
- 			.citation_display {
- 				.citation_formats {
- 					border: 0;
- 					background-color: #F4F4F4;
- 				}
- 			}
  		}
  	}
  }

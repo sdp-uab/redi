@@ -243,8 +243,7 @@
 				{if $pubId}
 					{assign var="doiUrl" value=$pubIdPlugin->getResolvingURL($currentJournal->getId(), $pubId)|escape}
 					<h2 class="label">
-						{capture assign=translatedDOI}{translate key="plugins.pubIds.doi.readerDisplayName"}{/capture}
-						{translate key="semicolon" label=$translatedDOI}
+						{translate key="plugins.pubIds.doi.readerDisplayName"}
 					</h2>
 					<span class="value">
 						<a href="{$doiUrl}">
@@ -387,9 +386,12 @@
 				{/if}
 			{/foreach}
 
+			{call_hook name="Templates::Article::Details"}
+
 			{* Licensing info *}
 			{if $currentContext->getLocalizedData('licenseTerms') || $publication->getData('licenseUrl')}
-				<div class="item copyright">
+				<section class="item copyright">
+					<h2 class="label"></h2>
 					{if $publication->getData('licenseUrl')}
 						{if $ccLicenseBadge}
 							{if $publication->getLocalizedData('copyrightHolder')}
@@ -406,10 +408,8 @@
 							</a>
 						{/if}
 					{/if}
-				</div>
+				</section>
 			{/if}
-
-			{call_hook name="Templates::Article::Details"}
 
 		</div><!-- .entry_details -->
 	</div><!-- .row -->

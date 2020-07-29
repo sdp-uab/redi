@@ -90,8 +90,9 @@
  				li {
  					display:inline;
  					&::after {
- 						content: " | ";
-						padding-right: @base;
+ 						content: "|";
+						padding: 0 @base/2;
+						font-size: @font-lead;
  					}
  					&:last-child::after {
  						content: "";
@@ -113,10 +114,10 @@
 
  					a {
  						visibility: hidden;
- 						width: @font-header;
-						height: @line-lead-compress;
+ 						width: @double;
+						height: @double;
  						display: inline-block;
- 						vertical-align: bottom;
+ 						vertical-align: text-bottom;
 						color: white;
  					}
  					a::before {

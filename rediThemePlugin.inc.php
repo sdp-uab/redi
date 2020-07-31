@@ -75,6 +75,7 @@ class rediThemePlugin extends ThemePlugin {
 											'styles/pages/article.less',
 											'styles/components/header.less',
 											'styles/components/breadcrumbs.less',
+											'styles/components/sidebar.less',
 											'styles/objects/announcement_summary.less',
 											'styles/responsive.less')));
 

@@ -25,6 +25,8 @@
 		/* Recommended article's plugin won't be much used and the html of
 		the plugin is not great, but... just in case */
 		#articlesBySameAuthorList {
+			padding-bottom: @triple;
+
 			h3 {
 				padding: 0;
 				margin: 0;
@@ -42,6 +44,8 @@
 				font-family: @font-body-article;
 				font-size: @font-sml;
 				line-height: @line-sml;
+				list-style-type: none;
+				padding-left: 0;
 			}
 		}
  	}
@@ -131,6 +135,16 @@
  					}
  				}
  			}
+
+			.obj_galley_link {
+				font-size: @font-sml;
+				line-height: @triple;
+				padding: 0 @base;
+
+				font-weight: @extra-bold;
+				background: @bg-base;
+				color: contrast(@primary);
+			}
 
  			.item {
 

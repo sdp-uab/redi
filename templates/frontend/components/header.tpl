@@ -57,12 +57,12 @@
 							{$primaryMenu}
 							<ul class="headerShortcuts">
 								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="headerShortcuts__send">
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="submission" op="wizard"}" class="headerShortcuts__send">
 										{translate|escape key="plugins.themes.redi.send"}
 									</a>
 								</li>
 								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="headerShortcuts__register">
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}" class="headerShortcuts__register">
 										{translate|escape key="plugins.themes.redi.register.reviewer"}
 									</a>
 								</li>

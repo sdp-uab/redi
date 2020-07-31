@@ -104,21 +104,31 @@
 
 
 		// Header NavMenu
+		.pkp_navigation_user {
+			margin-top: 0;
+
+			// ToDo MBR: This is a crap and need to be fixed...
+			// but something wired happens with this width.
+			&.pkp_nav_list {
+				li.profile {
+					ul.dropdown-menu {
+						width: auto !important;
+					}
+				}
+			}
+			.task_count {
+				padding: 0 0 0 2px;
+				background-color: @primary;
+				color: contrast(@primary);
+			}
+		}
 		.pkp_site_nav_menu {
 			background-color: white;
 			border-top: 1px solid @color-line;
-
-			.pkp_navigation_user {
-				margin-top: 0;
-				padding-top: 0;
-				.task_count {
-					background-color: @primary;
-					color: contrast(@primary);
-				}
-			}
 		}
 	}
 }
+
 
 
 /** BIG HEADER (home): **/

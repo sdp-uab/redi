@@ -30,6 +30,8 @@
 	{/if}
 </div><!-- pkp_structure_content -->
 
+{debug}
+
 <div class="pkp_structure_footer_wrapper" role="contentinfo">
 	<a id="pkp_content_footer"></a>
 
@@ -38,6 +40,12 @@
 		{if $pageFooter}
 			<div class="pkp_footer_content">
 				{$pageFooter}
+			</div>
+		{/if}
+
+		{if $ccLicenseBadgeJournal}
+			<div class="pkp_footer_license">
+				{$ccLicenseBadgeJournal}
 			</div>
 		{/if}
 

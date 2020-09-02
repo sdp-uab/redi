@@ -76,6 +76,7 @@ class rediThemePlugin extends ThemePlugin {
 											'styles/components/header.less',
 											'styles/components/breadcrumbs.less',
 											'styles/components/sidebar.less',
+											'styles/components/footer.less',
 											'styles/objects/announcement_summary.less',
 											'styles/responsive.less')));
 
@@ -125,6 +126,12 @@ class rediThemePlugin extends ThemePlugin {
 		$templateMgr->assign('rediThemePath', $request->getBaseUrl() . '/' . $this->getPluginPath());
 
 		$templateMgr->assign('rediHeaderLogoPath', $request->getBaseUrl() . '/' . $this->getPluginPath());
+
+		// Journal's CC license badge
+		$request = Application::getRequest();
+		$journal = $request->getJournal();
+		$badge=Application::get()->getCCLicenseBadge($journal->getData('licenseUrl'));
+		$templateMgr->assign('ccLicenseBadgeJournal', $badge);
 	}
 
 }

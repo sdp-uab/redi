@@ -1,0 +1,45 @@
+// This LESS file will be parsed before the default stylesheet is compiled. Any
+// variables defined here will override those in the original stylesheet.
+//
+// You can also add additional CSS style rules if desired.
+
+.pkp_structure_footer_wrapper {
+	background-color: @primary;
+	color: contrast(@primary);
+
+	.pkp_structure_footer {
+		display: flex;
+		flex-direction: row;
+
+		.pkp_footer_content,
+		.pkp_footer_license {
+			padding: @triple;
+
+			p {
+				margin: 0
+			}
+		}
+
+		.pkp_footer_content	{
+			flex: 5;
+			padding-left: 0;
+			font-size: @font-sml;
+			line-height: @line-sml;
+		}
+		.pkp_footer_license {
+			flex: 1;
+			p {
+				display: none;
+			}
+		}
+		.pkp_brand_footer {
+			flex: 1;
+			img {
+				max-width: 60%;
+//				mix-blend-mode: difference;
+				filter: invert(100%);
+				-webkit-filter: invert(100%);
+			}
+		}
+	}
+}

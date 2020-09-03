@@ -24,7 +24,48 @@
 
 		letter-spacing: @letter-spacing;
 	}
+	.page {
+		font-family: @font-body;
+		font-size: @font-sml;
+		line-height: @line-lead-compress;
+
+		.cmp_breadcrumbs {
+			font-family: @font;
+		}
+
+		h1,h2,h3,h4 {
+			font-family: @font;
+			text-transform: uppercase;
+			font-size: @font-bump;
+			line-height: @line-bump;
+			margin-top: @triple;
+			letter-spacing: @letter-spacing;
+			font-weight: @semi-bold;
+		}
+		h1 {
+			color: @primary;
+			font-weight: @black;
+			border-bottom: 1px solid @color-line;
+		}
+		h2,h3 {
+			color: @primary;
+		}
+		h4 {
+			letter-spacing: 0;
+		}
+	}
 }
+
+.pkp_structure_sidebar {
+	margin-top: @double+2;
+}
+
+.pkp_page_index {
+	.pkp_structure_sidebar {
+		margin-top: 0;
+	}
+}
+
 
 .obj_article_summary {
 	.title {

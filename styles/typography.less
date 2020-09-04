@@ -11,6 +11,7 @@
 
 /** Typography **/
 
+// Body in general
 .pkp_structure_main {
 	h2 {
 		font-family: @font-headingAlt;
@@ -28,6 +29,7 @@
 		font-family: @font-body;
 		font-size: @font-sml;
 		line-height: @line-lead-compress;
+		padding-bottom: @triple;
 
 		.cmp_breadcrumbs {
 			font-family: @font;
@@ -77,7 +79,6 @@
 }
 
 // Announcements
-
 .pkp_page_announcement {
 	.cmp_announcements {
 		li {
@@ -117,6 +118,25 @@
 	}
 }
 
+// Issue pages
+.pkp_page_issue {
+	.pkp_structure_main {
+		.page {
+			font-family: @font;
+			h1 {
+				border: 0;
+				font-family: @font-headingAlt;
+				font-size: @font-mega;
+				line-height: @line-mega;
+				font-weight: @extra-light;
+				letter-spacing: 0;
+			}
+		}
+	}
+}
+
+
+// Sidebars
 .pkp_structure_sidebar {
 	margin-top: @double+2;
 }
@@ -128,6 +148,7 @@
 }
 
 
+// Articles in home
 .obj_article_summary {
 	.title {
 		font-family: @font-body;

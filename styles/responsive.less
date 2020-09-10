@@ -3,11 +3,20 @@
 //
 // You can also add additional CSS style rules if desired.
 
+// @screen-phone:                480px;
+// @screen-tablet:               768px;
+// @screen-tablet-container:     @screen-tablet - (@double * 2);
+// @screen-desktop:              992px;
+// @screen-desktop-container:    @screen-desktop - (@double * 2);
+// @screen-lg-desktop:           1200px;
+// @screen-lg-desktop-container: @screen-lg-desktop - (@double * 2);
+
+
 /* Responsive */
 
-@media( max-width: @screen-tablet ) {
-	// Tablets or smaller
-	// width: @screen-tablet-container;
+@media( max-width: @screen-desktop ) {
+	// Smaller than desktops (<992px)
+	// width: @screen-desktop-container;
 
 	// Remove offset:
 	.offsetContent {
@@ -50,25 +59,6 @@
 	.headerShortcuts {
 		display: none;
 	}
-}
-
-@media( max-width: @screen-phone ) {
-	// Phones or smaller
-	// width: @screen-phone;
-
-	.banner {
-		flex-direction: column;
-		.bannerVisual {
-			flex-basis: auto;
-			height: 50vh;
-		}
-		.bannerIssue {
-			justify-content: flex-start;
-			.bannerIssue__title {
-				padding-top: @double;
-			}
-		}
-	}
 
 	// Top Image
 	.pkp_structure_head .pkp_head_wrapper .headerTop .pkp_site_name_wrapper {
@@ -91,7 +81,49 @@
 
 	// Content
 	.pkp_structure_content {
-		padding: @base;
+		padding: 0;
+		width: 100vw - @base;
+		// .pkp_structure_main {
+		// 	padding-right: @base;
+		// }
+	}
+	.banner.pkp_structure_content {
+		margin: 0;
+		width: 100%;
+	}
+	html {
+		//overflow-x: hidden;
+	}
+}
+
+@media( max-width: @screen-tablet ) {
+	// Tablets or smaller (<768px)
+	// width: @screen-tablet-container;
+}
+
+@media( max-width: @screen-phone ) {
+	// Phones or smaller (<480px)
+	// width: @screen-phone;
+
+	.banner {
+		flex-direction: column;
+		.bannerVisual {
+			flex-basis: auto;
+			height: 50vh;
+		}
+		.bannerIssue {
+			justify-content: flex-start;
+			.bannerIssue__title {
+				padding-top: @double;
+			}
+		}
+	}
+
+	// Top Image
+
+
+	// Content
+	.pkp_structure_content {
 
 		.page_index_journal {
 			margin: @base 0;
@@ -133,17 +165,17 @@
 	}
 
 	//Temporary fix: ToBeRemoved if image is a background?
-	.pkp_structure_content.banner {
-		padding: 0;
-	}
+	// .pkp_structure_content.banner {
+	// 	padding: 0;
+	// }
 }
 
 @media( min-width: @screen-lg-desktop ) {
-	// Big desktops or bigger
+	// Big desktops or bigger (>1200px)
 	// width: @screen-lg-desktop-container;
 }
 
 @media( min-width: @screen-desktop ) {
-	// Desktops or bigger
+	// Desktops or bigger (>992px)
 	// width: @screen-desktop-container;
 }

@@ -53,7 +53,8 @@
 			color: @primary;
 		}
 		h4 {
-			letter-spacing: 0;
+			// letter-spacing: 0;
+			color: @color-line;
 		}
 	}
 }
@@ -118,18 +119,27 @@
 	}
 }
 
-// Issue pages
-.pkp_page_issue {
+// Issue VIEW pages
+.pkp_page_issue.pkp_op_view {
 	.pkp_structure_main {
 		.page {
 			font-family: @font;
-			h1 {
+			.issue_serie {
 				border: 0;
 				font-family: @font-headingAlt;
 				font-size: @font-mega;
 				line-height: @line-mega;
 				font-weight: @extra-light;
 				letter-spacing: 0;
+			}
+			.issue_title {
+				border: 0;
+				font-family: @font-headingAlt;
+				font-size: @font-giga;
+				line-height: @font-mega;
+				font-weight: @semi-bold;
+				letter-spacing: 0;
+				margin-top: @base;
 			}
 		}
 	}

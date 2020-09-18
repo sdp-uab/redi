@@ -20,8 +20,9 @@
 {if $issue->getShowTitle()}
 {assign var=issueTitle value=$issue->getLocalizedTitle()}
 {/if}
+{if $issue->getIssueSeries()}
 {assign var=issueSeries value=$issue->getIssueSeries()}
-{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
+{/if}
 
 <div class="page page_issue">
 
@@ -36,10 +37,8 @@
 	{* Display an issue with the Table of Contents *}
 	{else}
 		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issueIdentification}
-{*		<h1>
-			{$issueIdentification|escape}
-		</h1>
-*}
+
+{*		<h1>{$issueIdentification|escape}</h1>*}
 
 {* issueIdentification is not segmented. Spliting it: *}
 		{if $issueSeries}
@@ -50,6 +49,10 @@
 		{if $issueTitle}
 			<h1 class="issue_title">
 				{$issueTitle|escape}
+			</h1>
+		{else}
+			<h1 class="issue_title">
+				{translate key="issue.toc"}
 			</h1>
 		{/if}
 

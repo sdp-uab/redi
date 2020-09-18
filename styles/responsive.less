@@ -99,6 +99,25 @@
 @media( max-width: @screen-tablet ) {
 	// Tablets or smaller (<768px)
 	// width: @screen-tablet-container;
+
+	.page_issue_archive {
+		.issues_archive {
+			li {
+				flex-basis: 30%;
+			}
+		}
+	}
+}
+
+@media( max-width: @screen-tablet ) and (orientation:landscape) {
+	// Tablets or smaller (<768px) and LANDSCAPE
+	// width: @screen-tablet-container;
+
+	.banner {
+		.bannerVisual {
+			height: @banner-height-land;
+		}
+	}
 }
 
 @media( max-width: @screen-phone ) {
@@ -141,10 +160,19 @@
 		}
 		.obj_issue_toc {
 			.cover {
-				width: 50%;
+				width: 120px;
 			}
 		}
 	}
+
+	.page_issue_archive {
+		.issues_archive {
+			li {
+				flex-basis: 45%;
+			}
+		}
+	}
+
 
 	//Footer
 	.pkp_structure_footer_wrapper {
@@ -169,6 +197,18 @@
 	// 	padding: 0;
 	// }
 }
+
+@media( max-width: @screen-phone ) and (orientation:landscape) {
+	// Phones or smaller (<480px) and LANDSCAPE.
+	// width: @screen-phone;
+
+	.banner {
+		.bannerVisual {
+			height: banner-height-land;
+		}
+	}
+}
+
 
 @media( min-width: @screen-lg-desktop ) {
 	// Big desktops or bigger (>1200px)

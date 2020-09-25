@@ -29,14 +29,29 @@
 		}
 	}
 
-	// Hiding owners
-	.headerTop__item {
+	// Journal and owners top logos.
+	.pkp_structure_head .pkp_head_wrapper {
+		.headerTop {
+			.pkp_site_name_wrapper {
+				display: flex;
+				width: 100%;
+				flex-wrap: wrap;
+				flex-direction: row-reverse;
+				justify-content: end;
+				align-items: center;
 
-		&.owners {
-			justify-content: center;
-			display: none;
+				background-color: white;
+
+				.headerTop__item {
+					flex-basis: auto;
+					&.owners {
+						text-align: right;
+					}
+				}
+			}
 		}
 	}
+
 
 	// Single column:
 	.section .cmp_article_list > li {
@@ -68,7 +83,7 @@
 				display: none;
 			}
 			&.journalLogo {
-				flex-basis: 86%;
+				flex-basis: 60%;
 				.is_img {
 					background-color: contrast(@primary);
 					height: @quadruple;
@@ -123,6 +138,18 @@
 @media( max-width: @screen-phone ) {
 	// Phones or smaller (<480px)
 	// width: @screen-phone;
+
+	.headerTop__item {
+		justify-content: center;
+
+		&.owners {
+			display: none;
+		}
+
+		&.journalLogo {
+			min-width: 100%;
+		}
+	}
 
 	.banner {
 		flex-direction: column;

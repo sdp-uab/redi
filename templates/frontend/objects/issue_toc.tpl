@@ -96,7 +96,7 @@
 	{* Articles *}
 	<div class="sections">
 	{foreach name=sections from=$publishedSubmissions item=section}
-		<div class="section">
+	<div class="section label{$section.title|capitalize|regex_replace:'/[^A-Za-z0-9]/':''}">
 		{if $section.articles}
 			{if $section.title}
 				<h2>

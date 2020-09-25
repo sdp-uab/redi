@@ -49,9 +49,18 @@ ul#languageNav,
 }
 
 // But... REVIEWS is always single column.
-.section:last-child .cmp_article_list > li {
-  flex: 1 0 100%;
-  max-width: 100%;
+.section {
+	&.labelReseas,
+	&.labelRessenyes,
+	&.labelResenhas,
+	&.labelRecensioni,
+	&.labelComptesRendus,
+	&.labelReviews {
+			.cmp_article_list > li {
+			flex: 1 0 100%;
+			max-width: 100%;
+		}
+	}
 }
 
 // Cover space

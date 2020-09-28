@@ -243,12 +243,49 @@
 		}
 	}
 
-	.bannerIssue.hover,
-	.bannerVisual.hover {
-		display: none;
-		position: absolute;
-		left: 33%;
-		width: 67%;
-		z-index: 300;
+	.bannerIssue,
+	.bannerVisual {
+		.hoverLayer {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 300;
+
+			width: 33%;
+			height: 100%;
+
+			background-color: #444;
+			.opacity(0.6);
+
+			padding: @triple;
+		}
+		.downloadIcon {
+			//position: relative;
+			text-align: center;
+			//min-height: 100%;
+			//background-image: url(/plugins/themes/redi3/imgs/download.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			//padding-top: 80%;
+			background-color: yellow;
+		}
+		.issueDescription {
+			left: 33%;
+			width: 67%;
+
+			.opacity(0.9);
+			background-color: @primary;
+
+			font-family: @font;
+			color: white;
+		}
+	}
+
+	.bannerIssue:hover,
+	.bannerVisual:hover {
+		.hoverLayer {
+			display: block;
+		}
 	}
 }

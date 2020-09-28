@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg5300"
+   version="1.1"
+   viewBox="0 0 52.916668 52.916668"
+   height="200"
+   width="200">
+  <defs
+     id="defs5294" />
+  <metadata
+     id="metadata5297">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-244.08333)"
+     id="layer1">
+    <g
+       style="fill:#f9f9f9"
+       id="g6-5"
+       transform="matrix(0.1051014,0,0,0.10304445,0.97124383,245.55338)">
+      <polygon
+         style="fill:#f9f9f9"
+         id="polygon2-6"
+         points="485,477.5 485,132.5 312.5,132.5 312.5,162.5 455,162.5 455,447.5 30,447.5 30,162.5 172.5,162.5 172.5,132.5 0,132.5 0,477.5 " />
+      <polygon
+         style="fill:#f9f9f9"
+         id="polygon4-2"
+         points="242.5,326.213 313.106,255.606 291.894,234.394 257.5,268.787 257.5,7.5 227.5,7.5 227.5,268.787 193.106,234.394 171.894,255.606 " />
+    </g>
+  </g>
+</svg>

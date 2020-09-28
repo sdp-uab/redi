@@ -32,6 +32,23 @@
 	{$headerTopImagePath="{$publicFilesDir}/{$headerTopImage.uploadName}"}
 	<div class="bannerVisual">
 		<a href="{$homeUrl}" role="img" class="is_img" style="background-image: url('{$homepageImagePath}');" aria-label="{$homepageImageAlt|escape}"></a>
+		{* Full-issue galleys *}
+		{if $issueGalleys}
+		<div class="hoverLayer downloadIcon">
+			<section class="galleys">
+				<h4 class="sr-only">
+					{translate key="issue.tableOfContents"}
+				</h4>
+				<ul class="galleys_links">
+					{foreach from=$issueGalleys item=galley}
+						<li>
+							{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
+						</li>
+					{/foreach}
+				</ul>
+			</section>
+		</div>
+		{/if}
 	</div>
 
 {*	MBR: Keeping this, just in case we need to move back (from background to an image again).
@@ -46,25 +63,7 @@
 	</div -->
 *}
 
-	{* Full-issue galleys *}
-	{if $issueGalleys}
-	<div class="bannerVisual hover">
-		<div class="redi-downlad-icon">
-			<section class="galleys">
-				<h4 class="sr-only">
-					{translate key="issue.tableOfContents"}
-				</h4>
-				<ul class="galleys_links">
-					{foreach from=$issueGalleys item=galley}
-						<li>
-							{include file="frontend/objects/galley_link.tpl" parent=$issue purchaseFee=$currentJournal->getSetting('purchaseIssueFee') purchaseCurrency=$currentJournal->getSetting('currency')}
-						</li>
-					{/foreach}
-				</ul>
-			</section>
-		</div>
-	</div>
-	{/if}
+
 	<div class="bannerIssue">
 		{if $issue->getShowVolume() || $issue->getShowNumber() || $issue->getShowYear()}
 			{* <a class="issue_summary_title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
@@ -96,9 +95,8 @@
 			{/if}
 			{/strip}
 		</div>
+		<div class="hoverLayer issueDescription">
+			{include file="frontend/components/redi_pas_desc.tpl"}
+		</div>
 	</div>
-	<div class="bannerIssue hover">
-		{include file="frontend/components/redi_pas_desc.tpl"}
-	</div>
-
 </section>

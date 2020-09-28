@@ -35,6 +35,7 @@
 			<a id="homepageAbout"></a>
 			<h2>{translate key="about.aboutContext"}</h2>
 			{$currentContext->getLocalizedData('description')}
+			{$journalDescription}
 		</section>
 	{/if}
 

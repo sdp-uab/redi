@@ -22,8 +22,6 @@
 	{$homepageImageAlt=$homepageImage.altText}
 {/if}
 
-{*debug*}
-
 <!-- a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a -->
 
 <section class="banner pkp_structure_content" role="banner">
@@ -35,8 +33,17 @@
 		{* Full-issue galleys *}
 		{if $issueGalleys}
 		<div class="hoverLayer downloadIcon">
-			<a href="{$homeUrl}/about">
-				<img class="is_img" src="{$homeUrl}/plugins/themes/redi/images/download.svg" aria-hidden=”true” aria-label='{translate key="issue.fullIssue"}'/>
+
+			{* Will take the first element *}
+			{foreach from=$issueGalleys item=galley}
+				{assign var="page" value="issue"}
+				{assign var="parentId" value=$issue->getBestIssueId()}
+				{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
+				{break}
+			{/foreach}
+
+			<a class="is_img" href="{url page=$page op="view" path=$path}" aria-hidden=”true” aria-label='{translate key="issue.fullIssue"}'>
+				<img class="icon" src="{$homeUrl}/plugins/themes/redi/images/download.svg" />
 			</a>
 			<section class="galleys">
 				<h4 class="sr-only">
@@ -90,5 +97,3 @@
 		</div>
 	</div>
 </section>
-
-{debug}

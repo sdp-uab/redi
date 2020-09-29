@@ -36,7 +36,7 @@
 		{if $issueGalleys}
 		<div class="hoverLayer downloadIcon">
 			<a href="{$homeUrl}/about">
-				<img class="is_img" src="{$homeUrl}/plugins/themes/redi/images/download.svg" />
+				<img class="is_img" src="{$homeUrl}/plugins/themes/redi/images/download.svg" aria-hidden=”true” aria-label='{translate key="issue.fullIssue"}'/>
 			</a>
 			<section class="galleys">
 				<h4 class="sr-only">
@@ -90,3 +90,5 @@
 		</div>
 	</div>
 </section>
+
+{debug}

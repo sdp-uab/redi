@@ -35,6 +35,7 @@
 		{* Full-issue galleys *}
 		{if $issueGalleys}
 		<div class="hoverLayer downloadIcon">
+			<!-- a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a -->
 			<section class="galleys">
 				<h4 class="sr-only">
 					{translate key="issue.tableOfContents"}
@@ -50,19 +51,6 @@
 		</div>
 		{/if}
 	</div>
-
-{*	MBR: Keeping this, just in case we need to move back (from background to an image again).
-	<!-- div class="bannerVisual">
-		<a href="{$homeUrl}" class="is_img">
-			{if isset($homepageImage)}
-			<img class="bannerVisual__image" src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText != ''}alt="{$homepageImage.altText|escape}"{/if}/>
-			{else}
-			<img class="bannerVisual__image" src="{$dummyImage}" alt="'A journal image that is still not set" />
-			{/if}
-		</a>
-	</div -->
-*}
-
 
 	<div class="bannerIssue">
 		{if $issue->getShowVolume() || $issue->getShowNumber() || $issue->getShowYear()}

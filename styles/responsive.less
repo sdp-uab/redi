@@ -165,8 +165,25 @@
 		}
 	}
 
-	// Top Image
+	//Fix hover zones in smartphones:
+	.banner {
+		.bannerIssue,
+		.bannerVisual {
+			.hoverLayer {
+				width: 100%;
+				&.downloadIcon {
+					height: inherit;
+				}
+				&.issueDescription {
+					left: 0;
+					position: relative;
+					width: 100%;
+				}
+			}
+		}
+	}
 
+	// Top Image
 
 	// Content
 	.pkp_structure_content {

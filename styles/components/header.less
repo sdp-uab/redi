@@ -255,30 +255,66 @@
 			width: 33%;
 			height: 100%;
 
-			background-color: #444;
-			.opacity(0.6);
+			background-color: @color-icon;
+			.opacity(0.9);
 
 			padding: @triple;
 		}
 		.downloadIcon {
-			//position: relative;
-			text-align: center;
-			//min-height: 100%;
-			//background-image: url(/plugins/themes/redi3/imgs/download.svg);
+			// position: relative;
+			// min-height: 100%;
+			background-image: url(/plugins/themes/redi/images/download.svg);
 			background-repeat: no-repeat;
-			background-position: center;
-			//padding-top: 80%;
-			background-color: yellow;
+			background-position: center 30%;
+			background-size: 70%;
+			//background-clip: content-box;
+			.galleys {
+				text-align: center;
+				height: max-content;
+				.galleys_links {
+					padding: 70% 0 0 0;
+					list-style-type: none;
+					.obj_galley_link {
+						background-color: initial;
+						font-size: @font-lead;
+						font-weight: @regular;
+						padding: @base @base/2;
+						&:before {
+							content: '';
+							display: none;
+						}
+						&:hover {
+							background-color: @primary;
+							color: @color-icon;
+							color: white;
+						}
+					}
+				}
+			}
 		}
 		.issueDescription {
 			left: 33%;
 			width: 67%;
 
-			.opacity(0.9);
 			background-color: @primary;
 
 			font-family: @font;
 			color: white;
+
+			.description_text {
+				text-transform: initial;
+				font-size: @font-lead;
+				line-height: @line-lead-compress;
+				a {
+					.allAnchors(white);
+				}
+				.more_button {
+					display: block;
+					margin: @base;
+					text-align: right;
+					font-weight: @semi-bold;
+				}
+			}
 		}
 	}
 

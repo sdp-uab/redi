@@ -261,22 +261,26 @@
 			padding: @triple;
 		}
 		.downloadIcon {
-			// position: relative;
-			// min-height: 100%;
-			background-image: url(/plugins/themes/redi/images/download.svg);
-			background-repeat: no-repeat;
-			background-position: center 30%;
-			background-size: 70%;
-			//background-clip: content-box;
+			.is_img {
+				width: 70%;
+				height: auto;
+				display: block;
+				margin: 0 auto;
+				&:hover {
+					// Not working with svgs as imgs.
+					fill: @primary;
+					.opacity(0.6);
+				}
+			}
 			.galleys {
 				text-align: center;
-				height: max-content;
 				.galleys_links {
-					padding: 70% 0 0 0;
+					padding: 0;
 					list-style-type: none;
 					.obj_galley_link {
 						background-color: initial;
 						font-size: @font-lead;
+						line-height: @line-lead-compress;
 						font-weight: @regular;
 						padding: @base @base/2;
 						&:before {

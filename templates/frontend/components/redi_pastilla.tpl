@@ -35,7 +35,9 @@
 		{* Full-issue galleys *}
 		{if $issueGalleys}
 		<div class="hoverLayer downloadIcon">
-			<!-- a href="{$homeUrl}" class="is_img" style="background-image: url('{$homepageImageBackground}');"</a -->
+			<a href="{$homeUrl}/about">
+				<img class="is_img" src="{$homeUrl}/plugins/themes/redi/images/download.svg" />
+			</a>
 			<section class="galleys">
 				<h4 class="sr-only">
 					{translate key="issue.tableOfContents"}

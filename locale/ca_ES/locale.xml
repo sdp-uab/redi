@@ -19,6 +19,7 @@
 	<message key="plugins.themes.redi.language">Llengua</message>
 	<message key="plugins.themes.redi.send">Fer una tramesa</message>
 	<message key="plugins.themes.redi.register.reviewer">Alta com a revisor</message>
+	<message key="plugins.themes.redi.register">Registre</message>
 
 	<message key="plugins.themes.redi.vol.abbr">Vol</message>
 	<message key="plugins.themes.redi.num.abbr">Num</message>

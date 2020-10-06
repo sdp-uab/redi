@@ -63,7 +63,7 @@
 								</li>
 								<li>
 									<a href="{url router=$smarty.const.ROUTE_PAGE page="user" op="register"}" class="headerShortcuts__register">
-										{translate|escape key="plugins.themes.redi.register.reviewer"}
+										{translate|escape key="plugins.themes.redi.register"}
 									</a>
 								</li>
 							</ul>

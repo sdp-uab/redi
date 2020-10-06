@@ -115,6 +115,13 @@
 						width: auto !important;
 					}
 				}
+				// Remove "REGISTER" (if exist)
+				.profile {
+					display: none;
+				}
+				.profile:last-child {
+					display: block;
+				}
 			}
 			.task_count {
 				padding: 0 0 0 2px;
@@ -258,14 +265,14 @@
 			background-color: @color-icon;
 			.opacity(0.9);
 
-			padding: @triple;
+			padding: @triple @base;
 		}
 		.downloadIcon {
 			.is_img {
-				width: 70%;
+				width: 50%;
 				height: auto;
 				display: block;
-				margin: 0 auto;
+				margin: 5% auto;
 				text-align: center;
 				.icon {
 					&:hover {

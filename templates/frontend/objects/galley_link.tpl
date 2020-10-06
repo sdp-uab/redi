@@ -51,7 +51,7 @@
 {* Better lang labels in galley *}
 {capture assign="galleyLocale"}
   {if $galley->getLocale() !== $currentLocale}
-    ({$currentLocale|upper|substr:0:2})
+    ({$galley->getLocale()|upper|substr:0:2})
   {/if}
 {/capture}
 

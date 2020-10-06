@@ -265,9 +265,10 @@
 			background-color: @color-icon;
 			.opacity(0.9);
 
-			padding: @triple @base;
+			padding: @triple;
 		}
 		.downloadIcon {
+			padding: @triple @base;
 			.is_img {
 				width: 50%;
 				height: auto;
@@ -292,7 +293,8 @@
 						font-size: @font-lead;
 						line-height: @line-lead-compress;
 						font-weight: @regular;
-						padding: @base @base/2;
+						padding: @base/4 @base;
+						margin: @base/4;
 						&:before {
 							content: '';
 							display: none;
@@ -330,6 +332,12 @@
 					&:hover {
 						font-weight: @semi-bold;
 					}
+				}
+				p:first-child {
+					margin-top: 0;
+				}
+				p:last-child {
+					margin-bottom: 0;
 				}
 			}
 		}

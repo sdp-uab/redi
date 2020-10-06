@@ -29,7 +29,7 @@
 	{* Banner Image (aka. homepageImage) *}
 	{$headerTopImagePath="{$publicFilesDir}/{$headerTopImage.uploadName}"}
 	<div class="bannerVisual">
-		<a href="{$homeUrl}" role="img" class="is_img" style="background-image: url('{$homepageImagePath}');" aria-label="{$homepageImageAlt|escape}"></a>
+		<div role="img" class="is_img" style="background-image: url('{$homepageImagePath}');" aria-label="{$homepageImageAlt|escape}"></div>
 		{* Full-issue galleys *}
 		{if $issueGalleys}
 		<div class="hoverLayer downloadIcon">

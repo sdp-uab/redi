@@ -292,10 +292,10 @@
 					.obj_galley_link {
 						background-color: initial;
 						font-size: @font-lead;
-						line-height: @line-lead-compress;
+						line-height: @line-bump;
 						font-weight: @regular;
-						padding: @base/4 qq @base;
-						margin: @base/4;
+						//padding: @base/4 @base;
+						margin: 0;
 						&:before {
 							content: '';
 							display: none;
@@ -315,12 +315,12 @@
 
 			background-color: @primary;
 
-			font-family: @font;
+			font-family: @font-body;
 			color: white;
 
 			.description_text {
 				text-transform: initial;
-				font-size: @font-lead;
+				font-size: @font-sml;
 				line-height: @line-lead-compress;
 				a {
 					.allAnchors(white);

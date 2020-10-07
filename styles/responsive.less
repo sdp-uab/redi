@@ -30,22 +30,26 @@
 	}
 
 	// Journal and owners top logos.
-	.pkp_structure_head .pkp_head_wrapper {
-		.headerTop {
-			.pkp_site_name_wrapper {
-				display: flex;
-				width: 100%;
-				flex-wrap: wrap;
-				flex-direction: row-reverse;
-				justify-content: end;
-				align-items: center;
+	.pkp_structure_head {
+		border-bottom: 1px solid @color-line;
 
-				background-color: white;
+		.pkp_head_wrapper {
+			.headerTop {
+				.pkp_site_name_wrapper {
+					display: flex;
+					width: 100%;
+					flex-wrap: wrap;
+					flex-direction: row-reverse;
+					justify-content: end;
+					align-items: center;
 
-				.headerTop__item {
-					flex-basis: auto;
-					&.owners {
-						text-align: right;
+					background-color: white;
+
+					.headerTop__item {
+						flex-basis: auto;
+						&.owners {
+							text-align: right;
+						}
 					}
 				}
 			}
@@ -53,7 +57,13 @@
 	}
 
 
-	// Single column:
+	//
+	.cmp_breadcrumbs {
+		margin-top: @double;
+	}
+
+	// Articles:
+	// Single column
 	.section .cmp_article_list > li {
 	  flex: 1 0 100%;
 	  max-width: 100%;
@@ -131,10 +141,18 @@
 			.main_entry {
 				width: auto;
 
-				& > *,
-				.page_title {
+				& > * {
 					padding-left: 0;
 					padding-right: 0;
+				}
+				.page_title {
+					font-size: @font-title;
+					line-height: @line-title;
+					padding: 0;
+				}
+				.item.authors {
+					padding-top: @double;
+					padding-bottom: @double;
 				}
 				.item.author_bios {
 					.value {

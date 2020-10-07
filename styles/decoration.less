@@ -41,7 +41,151 @@
 	width: 100%;
 }
 
+// Forms (Search, Register...)
+.cmp_form {
+	legend {
+		padding: @triple @base @base 0;
+		font-family: @font;
+		text-transform: uppercase;
+		font-size: @font-bump;
+		line-height: @line-bump;
+		letter-spacing: @letter-spacing;
+		font-weight: @semi-bold;
+		color: @primary;
 
+		padding-top: 0;
+	}
+	.label {
+		font-family: @font;
+		text-transform: uppercase;
+		font-size: @font-micro;
+		line-height: @line-bump;
+		letter-spacing: @letter-spacing;
+		font-weight: @semi-bold;
+		color: @color-title;
+		font-style: initial;
+	}
+	#connect-orcid-button{
+		margin-top: @base;
+	}
+}
+
+
+.pkp_page_search {
+	.search_advanced {
+		padding: 0;
+		legend {
+			padding: @triple @base @base 0;
+
+			font-family: @font;
+			text-transform: uppercase;
+			font-size: @font-bump;
+			line-height: @line-bump;
+			letter-spacing: @letter-spacing;
+			font-weight: @semi-bold;
+			color: @primary;
+		}
+		.date_range,
+		.author {
+			label {
+				font-family: @font;
+				text-transform: uppercase;
+				font-size: @font-micro;
+				line-height: @line-bump;
+				letter-spacing: @letter-spacing;
+				font-weight: @semi-bold;
+				color: @color-title;
+				font-style: initial;
+			}
+		}
+		.author {
+			input {
+				max-width: initial;
+			}
+		}
+	}
+	.submit {
+		margin-top: -@font-header * 2;
+
+		//reset submit button
+		button {
+			background: none;
+			border: initial;
+			border-radius: initial;
+			box-shadow: initial;
+
+			text-transform: uppercase;
+			font-size: @font-nano;
+			line-height: @base;
+			padding: @base/3 @base/2;
+
+			font-weight: @black;
+			background: @bg-base;
+			color: contrast(@primary);
+			vertical-align: bottom;
+
+			&:before {
+				.prefix-icon('\f002','white',@font-sml);
+			}
+			&:hover,
+			&:focus
+			 {
+				background: none;
+				border: initial;
+				border-radius: initial;
+				box-shadow: initial;
+			}
+			&::after{
+				background: none;
+				border: initial;
+				border-radius: initial;
+				box-shadow: initial;
+				content: '';
+			}
+		}
+	}
+	.search_results {
+		padding-top: @triple;
+		.obj_article_summary {
+			padding-top: 0;
+
+			.title {
+				border-left: 6px solid @primary;
+				padding-left: @double;
+			}
+
+			.authors {
+				padding-left: @double+6;
+
+				color: @primary;
+				font-family: @font;
+				font-size: @font-nano;
+				font-weight: @regular;
+				text-transform: uppercase;
+				color: #7b7979;
+			}
+		}
+	}
+}
+
+.cmp_form input[type="text"],
+.cmp_form input[type="email"],
+.cmp_form input[type="password"],
+.cmp_form input[type="url"],
+.cmp_form input[type="tel"],
+.cmp_form select,
+.cmp_form .tagit,
+.pkp_search input[type="text"] {
+    max-width: 40em;
+}
+
+.cmp_form .fields > div {
+	padding-bottom: @double;
+}
+
+.page_login .login {
+	max-width: 40em;
+}
 /* Hero image */
 //
 // .redi-pastilla .row {

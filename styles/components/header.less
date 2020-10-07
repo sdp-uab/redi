@@ -36,10 +36,11 @@
 		}
 		.headerShortcuts__send::before {
 			content: "\f139";
+			font-size: @bullet-icons;
 		}
 		.headerShortcuts__register::before {
 			content: "\f2bd";
-			font-size: @font-header - 3;
+			font-size: @bullet-icons - 3;
 		}
 	}
 }
@@ -293,7 +294,7 @@
 						font-size: @font-lead;
 						line-height: @line-lead-compress;
 						font-weight: @regular;
-						padding: @base/4 @base;
+						padding: @base/4 qq @base;
 						margin: @base/4;
 						&:before {
 							content: '';

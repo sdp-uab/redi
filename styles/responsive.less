@@ -122,6 +122,37 @@
 			}
 		}
 	}
+
+	//Articles
+
+	.pkp_page_article {
+		.obj_article_details {
+			// Content block:
+			.main_entry {
+				width: auto;
+
+				& > *,
+				.page_title {
+					padding-left: 0;
+					padding-right: 0;
+				}
+				.item.author_bios {
+					.value {
+						max-height: initial;
+						overflow-y: initial;
+					}
+				}
+			}
+			// Side bar:
+			.entry_details {
+				width: auto;
+				.item {
+					padding-left: @double;
+					padding-right: @double;
+				}
+			}
+		}
+	}
 }
 
 @media( max-width: @screen-tablet ) and (orientation:landscape) {

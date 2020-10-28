@@ -21,6 +21,9 @@
 	<message key="plugins.themes.redi.register.reviewer">Alta com a revisor</message>
 	<message key="plugins.themes.redi.register">Registrar</message>
 
+	<message key="plugins.themes.redi.color.hover.label">Color d'enllaç</message>
+	<message key="plugins.themes.redi.color.hover.description">Color a utilitzar al passar per sobre d'un enllaç</message>
+
 	<message key="plugins.themes.redi.vol.abbr">Vol</message>
 	<message key="plugins.themes.redi.num.abbr">Num</message>
 

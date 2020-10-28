@@ -107,7 +107,7 @@
 	.submit {
 		margin-top: -@font-header * 2;
 
-		//reset submit button
+		// Reset submit button
 		button {
 			background: none;
 			border: initial;
@@ -117,25 +117,29 @@
 			text-transform: uppercase;
 			font-size: @font-nano;
 			line-height: @base;
-			padding: @base/3 @base/2;
+			padding: @base/2 @base;
 
 			font-weight: @black;
 			background: @bg-base;
 			color: contrast(@primary);
-			vertical-align: bottom;
 
 			&:before {
 				.prefix-icon('\f002','white',@font-sml);
+				height: initial;
+				width: initial;
+				padding: 0 @base 0 @base/3;
+				vertical-align: initial;
 			}
-			&:hover,
-			&:focus
-			 {
-				background: none;
-				border: initial;
-				border-radius: initial;
-				box-shadow: initial;
-			}
-			&::after{
+		// 	&:hover,
+		// 	&:focus
+		// 	 {
+		// 		background: none;
+		// 		border: initial;
+		// 		border-radius: initial;
+		// 		box-shadow: initial;
+		// 	}
+			&::after,
+			&:hover::after{
 				background: none;
 				border: initial;
 				border-radius: initial;

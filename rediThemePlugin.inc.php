@@ -39,6 +39,35 @@ class rediThemePlugin extends ThemePlugin {
 			$this->removeStyle('fontLoraOpenSans');
 		}
 
+		// Add the option for an hover color
+		$this->addOption('hoverColour', 'FieldColor', [
+			'label' => __('plugins.themes.redi.color.hover.label'),
+			'description' => __('plugins.themes.redi.color.hover.description'),
+			'default' => '#F7BC4A',
+		]);
+
+		// Start with a fresh array of additionalLessVariables so that we can
+		// ignore those added by the parent theme. This gets rid of @font
+		// variable overrides from the typography option
+		$additionalLessVariables = array();
+
+		// Update colour based on theme option from parent theme
+		if ($this->getOption('baseColour') !== '#1E6292') {
+			$additionalLessVariables[] = '@bg-base:' . $this->getOption('baseColour') . ';';
+			if (!$this->isColourDark($this->getOption('baseColour'))) {
+				$additionalLessVariables[] = '@text-bg-base:rgba(0,0,0,0.84);';
+			}
+		}
+
+		// Update hover colour based on theme option
+		if ($this->getOption('hoverColour') !== '#F7BC4A') {
+			$additionalLessVariables[] = '@hover:' . $this->getOption('hoverColour') . ';';
+		}
+
+		if ($this->getOption('baseColour') && $this->getOption('hoverColour')) {
+			$this->modifyStyle('stylesheet', array('addLessVariables' => join('', $additionalLessVariables)));
+		}
+
 		$this->addStyle(
 			'academicons',
 			'https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css',

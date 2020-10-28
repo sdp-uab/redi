@@ -17,12 +17,17 @@
 .obj_galley_link {
 	font-size: @font-nano;
 	line-height: @base;
-	padding: @base/3 @base/2;
+	padding: @base/3 @base/2 @base/2 @base/2;
 
 	font-weight: @black;
 	background: @bg-base;
 	color: contrast(@primary);
-	vertical-align: bottom;
+	vertical-align: top;
+	&:hover {
+		background-color: @hover;
+		color: @color-icon;
+		color: white;
+	}
 }
 
 // Responsive NavMenu
@@ -129,6 +134,10 @@
 				width: initial;
 				padding: 0 @base 0 @base/3;
 				vertical-align: initial;
+			}
+			&:hover {
+				background-color: @hover;
+				color: white;
 			}
 		// 	&:hover,
 		// 	&:focus

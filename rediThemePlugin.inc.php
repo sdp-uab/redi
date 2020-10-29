@@ -70,25 +70,25 @@ class rediThemePlugin extends ThemePlugin {
 
 		$this->addStyle(
 			'academicons',
-			'https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css',
+			'https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css?display=swap',
 			array('baseUrl' => '')
 		);
 
 		$this->addStyle(
 			'fontBarlowSemiCondensed',
-			'//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:200,600',
+			'//fonts.googleapis.com/css?family=Barlow+Semi+Condensed:200,600&display=swap',
 			array('baseUrl' => '')
 		);
 
 		$this->addStyle(
 			'fontsMerriweather',
-			'//fonts.googleapis.com/css?family=Merriweather:300,400,700',
+			'//fonts.googleapis.com/css?family=Merriweather:300,400,700&display=swap',
 			array('baseUrl' => '')
 		);
 
 		$this->addStyle(
 			'fontsMuli',
-			'//fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800',
+			'//fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800&display=swap',
 			array('baseUrl' => '')
 		);
 

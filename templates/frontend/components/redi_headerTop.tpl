@@ -40,7 +40,7 @@
 			<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
 				{* Minimal searcher (icon+link) *}
 				<a href="{url router=$smarty.const.ROUTE_PAGE page="search" op="search"}" class="userMenu__search">
-					<span aria-hidden=”true” aria-label='{translate key="common.search"}'></span>
+					<span aria-hidden="true" aria-label='{translate key="common.search"}'></span>
 				</a>
 
 				{* Language Toggle menu *}

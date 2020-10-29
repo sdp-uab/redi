@@ -15,9 +15,13 @@
 		li {
 			display: inline-block;
 
+			a:hover {
+				color: @hover;
+			}
+
 			//Dropdown menus:
 			ul li {
-	    		display: block;
+				display: block;
 			}
 
 		}
@@ -29,6 +33,9 @@
 			color: @color-icon !important;
 			text-decoration: none;
 			vertical-align: middle;
+			&:hover {
+				color: @hover !important;
+			}
 		}
 
 		a::before {
@@ -94,10 +101,16 @@
 					position: relative;
 					padding-right: 0;
 
+					a:hover {
+						color: @hover;
+					}
 					// Search icon
 					.userMenu__search::before {
 						.prefix-icon('\f002',@color-icon,@font-sml);
 						line-height: @font-header+4;
+					}
+					.userMenu__search:hover::before {
+						color: @hover;
 					}
 				}
 			}
@@ -287,6 +300,8 @@
 					}
 				}
 			}
+
+			// Full issue galleys ON TOP-BANNER:
 			.galleys {
 				text-align: center;
 				.galleys_links {
@@ -297,7 +312,7 @@
 						font-size: @font-lead;
 						line-height: @line-bump;
 						font-weight: @regular;
-						//padding: @base/4 @base;
+						padding: @base/2 @base;
 						margin: 0;
 						&:before {
 							content: '';
@@ -305,7 +320,6 @@
 						}
 						&:hover {
 							background-color: @hover;
-							color: @color-icon;
 							color: white;
 						}
 					}
@@ -330,9 +344,10 @@
 				}
 				.more_button {
 					display: block;
-					margin: @base;
+					//margin: @base 0;
 					text-align: right;
 					font-weight: @semi-bold;
+					text-decoration: none;
 					&:hover {
 						font-weight: @semi-bold;
 						background-color: @hover;

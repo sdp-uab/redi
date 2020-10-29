@@ -9,6 +9,12 @@
  * @brief Styles applying everywhere.
  */
 
+/** Global **/
+
+a:hover {
+	color: @hover;
+}
+
 /** Decorations **/
 
 // Buttons
@@ -17,15 +23,15 @@
 .obj_galley_link {
 	font-size: @font-nano;
 	line-height: @base;
-	padding: @base/3 @base/2 @base/2 @base/2;
+	padding: @base/2;
 
 	font-weight: @black;
-	background: @bg-base;
+	background: @primary;
 	color: contrast(@primary);
-	vertical-align: top;
+	vertical-align: baseline;
+
 	&:hover {
 		background-color: @hover;
-		color: @color-icon;
 		color: white;
 	}
 }
@@ -75,7 +81,6 @@
 	}
 }
 
-
 .pkp_page_search {
 	.search_advanced {
 		padding: 0;
@@ -112,7 +117,7 @@
 	.submit {
 		margin-top: -@font-header * 2;
 
-		// Reset submit button
+		// Reset submit button (SEARCH)
 		button {
 			background: none;
 			border: initial;
@@ -125,7 +130,7 @@
 			padding: @base/2 @base;
 
 			font-weight: @black;
-			background: @bg-base;
+			background: @primary;
 			color: contrast(@primary);
 
 			&:before {
@@ -199,140 +204,15 @@
 .page_login .login {
 	max-width: 40em;
 }
-/* Hero image */
-//
-// .redi-pastilla .row {
-//   overflow: hidden;
-//   background-color: #027970;
-//   margin-right:0;
-//   margin-left:0;
-//   margin: 0;
-//   padding: 0;
-// }
-//
-// .redi-pastilla {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-// }
-//
-// .redi-pastilla.header {
-//   padding: 0;
-// 	background-color: #027970;
-//   color: #FFF;
-// }
-//
-// .redi-pastilla .redi-box {
-// /*  flex-basis: 100%;*/
-// }
-//
-// .redi-pastilla .redi-box.redi-cover {
-// /*  flex: 1;*/
-//   padding: 0;
-// }
-//
-// .redi-pastilla .redi-box.redi-text {
-//   /* flex: 2; */
-//   /* min-height: 100px; */
-// }
-//
 
-
-
-//
-// .redi-pastilla .redi-left {
-//   width: 100%;
-//   /*height: 100%;*/
-// }
-//
-// .redi-pastilla .redi-vol-num {
-//   text-align: left;
-//   width: 45%;
-//   float:left;
-// }
-//
-// .redi-pastilla .redi-year {
-//   text-align: right;
-//   width: 45%;
-//   float: right;
-// }
-//
-
-//
-// .redi-pastilla .current-issue-number:before {
-//    content: none;
-// }
-//
-
-//
-//
-// .redi-pastilla .cover {
-//   max-height: 100%;
-//   max-width: 100%;
-//   object-fit: cover;
-//   /* Default image?
-//   background-image : url("https://revistes.uab.cat/ojs-jtl3/public/journals/5/cover_issue_87_en_US.jpg");
-//   background-size: cover;
-//   background-position: center;
-//   */
-// }
-//
-// .redi-pastilla .archive_issue_cover {
-//   max-width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   object-position: center;
-// }
-//
-// .redi-pastilla .redi-hover {
-// 	display: none;
-// 	position: absolute;
-// 	background-color: #027970;
-// 	top: 0;
-// 	left: 0;
-// 	padding: 0;
-// 	/* IE shit */
-// 	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
-// 	filter: alpha(opacity=90);
-// 	/* Modern browsers */
-// 	opacity: 0.9;
-// 	width: 100%;
-// 	height: 100%;
-// }
-//
-// .redi-pastilla .redi-box.redi-cover:hover .redi-hover,
-// .redi-pastilla .redi-box.redi-text:hover .redi-hover {
-// 	display: block;
-// }
-//
-// .redi-pastilla.header {
-// 	margin-top: 12rem;
-// }
-//
-// /* Description text */
-// .redi-pastilla .redi-hover p {
-// 	font-family: Barlow, Open Sans, Helvetica, Arial;
-// 	font-weight: 400;
-// 	font-size: 0.9rem;
-// 	text-transform: initial;
-// 	min-width: 100%;
-// 	line-height: 1.56rm;
-// 	letter-spacing: 0.2px;
-// 	text-align: justify;
-// }
-//
-// .redi-pastilla .redi-hover .description {
-// 	width: 100%;
-// 	/* padding: 1.5rem 3rem 1.5rem 1.5rem */
-// 	padding: 2rem;
-// 	margin: 0;
-// }
-//
-// .redi-pastilla .more_button {
-//   font-family: Barlow, Open Sans, Helvetica, Arial;
-//   color: #FFF;
-//   font-weight: 600;
-//   padding-top: 1em;
-//   display: block;
-//   text-align: right;
-// }
+.pkp_page_index {
+	.current_issue {
+		.read_more {
+			margin: @double 0;
+			text-transform: uppercase;
+			&:hover {
+				color: @hover;
+			}
+		}
+	}
+}

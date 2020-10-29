@@ -142,8 +142,13 @@
 				padding: 0 @base;
 
 				font-weight: @extra-bold;
-				background: @bg-base;
+				background-color: @primary;
 				color: contrast(@primary);
+
+				&:hover {
+					background-color: @primary;
+					color: white;
+				}
 			}
 
  			.item {

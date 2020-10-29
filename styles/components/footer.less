@@ -7,6 +7,16 @@
 	background-color: @primary;
 	color: contrast(@primary);
 
+	a {
+		color: contrast(@primary);
+		text-decoration: none;
+		font-weight: @black;
+
+		&:hover {
+			color: @hover;
+		}
+	}
+
 	.pkp_structure_footer {
 		display: flex;
 		flex-direction: row;

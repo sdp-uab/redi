@@ -15,8 +15,11 @@
 		li {
 			display: inline-block;
 
-			a:hover {
-				color: @hover;
+			a {
+				&:hover {
+					border-bottom: 0;
+					color: @hover;
+				}
 			}
 
 			//Dropdown menus:

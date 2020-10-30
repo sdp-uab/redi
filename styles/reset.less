@@ -60,3 +60,61 @@ a {
     width: auto;
     border-top: initial;
 }
+
+// Buttons
+
+.cmp_button,
+.cmp_form .buttons button,
+.pkp_search button[type="submit"],
+.page_lost_password .buttons button,
+.page_search .submit button,
+.block_make_submission a {
+	background: none;
+	border: initial;
+	border-radius: initial;
+	box-shadow: initial;
+
+	text-transform: uppercase;
+	font-size: @font-nano;
+	line-height: inherit;
+	padding: @base/2 @base;
+
+	font-weight: @black;
+	background: @primary;
+	color: @primaryContrast;
+
+	&:hover,
+	&:focus
+	 {
+		background: none;
+		border: initial;
+		border-radius: initial;
+		box-shadow: initial;
+		line-height: inherit;
+
+		background-color: @hover;
+		color: @hoverContrast;
+	}
+	&::after,
+	&:active::after,
+	&:hover::after,
+	&:focus::after{
+		background: none;
+		border: initial;
+		border-radius: initial;
+		box-shadow: initial;
+		content: '';
+		line-height: inherit;
+	}
+}
+
+// Form: lost_password
+.page_lost_password {
+	.lost_password {
+		max-width: 100%;
+	}
+	.cmp_form input[type="email"] {
+		max-width: none;
+		width: 100%;
+	}
+}

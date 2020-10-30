@@ -63,14 +63,14 @@
 /** REGULAR HEADER **/
 
 .pkp_structure_head {
-	background-color: white;
+	background-color: @bg-page;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 900;
 
 	&.reducedHeader {
-		background-color: white;
+		background-color: @bg-page;
 
 		.pkp_head_wrapper {
 			.box-shadow(0px, 0px, 20px, 0.3);
@@ -89,13 +89,13 @@
 				justify-content: space-between;
 				align-items: flex-start;
 
-				background-color: white;
+				background-color: @bg-page;
 
 				.headerTop__item {
 					flex-basis:33%;
 
 					.is_img {
-						color: white;
+						color: @bg-page;
 					}
 
 				}
@@ -145,11 +145,11 @@
 			.task_count {
 				padding: 0 0 0 2px;
 				background-color: @primary;
-				color: contrast(@primary);
+				color: @primaryContrast;
 			}
 		}
 		.pkp_site_nav_menu {
-			background-color: white;
+			background-color: @bg-page;
 			border-top: 1px solid @color-line;
 		}
 	}
@@ -229,7 +229,7 @@
 			font-weight: @extra-light;
 			font-size: @font-mega;
 			line-height: @font-mega;
-			color: white;
+			color: @primaryContrast;
 			.opacity(0.8);
 		}
 
@@ -246,8 +246,7 @@
 		}
 
 		.bannerIssue__title {
-
-			color: white;
+			color: @primaryContrast;
 			font-size: @font-giga;
 			line-height: @font-giga;
 			font-weight: @semi-bold;
@@ -322,7 +321,7 @@
 						}
 						&:hover {
 							background-color: @hover;
-							color: white;
+							color: @hoverContrast;
 						}
 					}
 				}
@@ -335,7 +334,7 @@
 			background-color: @primary;
 
 			font-family: @font-body;
-			color: white;
+			color: @primaryContrast;
 
 			.description_text {
 				text-transform: initial;
@@ -353,7 +352,7 @@
 					&:hover {
 						font-weight: @semi-bold;
 						background-color: @hover;
-						color: white;
+						color: @hoverContrast;
 					}
 				}
 				p:first-child {

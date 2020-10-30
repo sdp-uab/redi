@@ -27,12 +27,12 @@ a:hover {
 
 	font-weight: @black;
 	background: @primary;
-	color: contrast(@primary);
+	color: @primaryContrast;
 	vertical-align: baseline;
 
 	&:hover {
 		background-color: @hover;
-		color: white;
+		color: @hoverContrast;
 	}
 }
 
@@ -119,19 +119,6 @@ a:hover {
 
 		// Reset submit button (SEARCH)
 		button {
-			background: none;
-			border: initial;
-			border-radius: initial;
-			box-shadow: initial;
-
-			text-transform: uppercase;
-			font-size: @font-nano;
-			line-height: @base;
-			padding: @base/2 @base;
-
-			font-weight: @black;
-			background: @primary;
-			color: contrast(@primary);
 
 			&:before {
 				.prefix-icon('\f002','white',@font-sml);
@@ -140,26 +127,27 @@ a:hover {
 				padding: 0 @base 0 @base/3;
 				vertical-align: initial;
 			}
-			&:hover {
+			&:hover,
+			&:focus
+			 {
+				// background: none;
+				// border: initial;
+				// border-radius: initial;
+				// box-shadow: initial;
+
 				background-color: @hover;
-				color: white;
+ 				color: @hoverContrast;
 			}
-		// 	&:hover,
-		// 	&:focus
-		// 	 {
-		// 		background: none;
-		// 		border: initial;
-		// 		border-radius: initial;
-		// 		box-shadow: initial;
-		// 	}
-			&::after,
-			&:hover::after{
-				background: none;
-				border: initial;
-				border-radius: initial;
-				box-shadow: initial;
-				content: '';
-			}
+			// &::after,
+			// &:active::after,
+			// &:hover::after,
+			// &:focus::after{
+			// 	background: none;
+			// 	border: initial;
+			// 	border-radius: initial;
+			// 	box-shadow: initial;
+			// 	content: '';
+			// }
 		}
 	}
 	.search_results {

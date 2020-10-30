@@ -136,13 +136,10 @@
 					ul.dropdown-menu {
 						width: 170% !important;
 					}
-				}
-				// Remove "REGISTER" (if exist)
-				.profile {
-					display: none !important;
-				}
-				.profile:last-child {
-					display: block !important;
+					// Remove "REGISTER" (if exist)
+					a[href$="user/register"] {
+						display: none;
+					}
 				}
 			}
 			.task_count {

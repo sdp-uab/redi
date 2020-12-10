@@ -57,7 +57,7 @@
 							{$primaryMenu}
 							<ul class="headerShortcuts">
 								<li>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="submission" op="wizard"}" class="headerShortcuts__send">
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}" class="headerShortcuts__send">
 										{translate|escape key="plugins.themes.redi.send"}
 									</a>
 								</li>

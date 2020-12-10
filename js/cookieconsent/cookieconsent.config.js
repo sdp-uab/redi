@@ -1,6 +1,6 @@
 window.CookieConsent.init({
   theme: {
-    barColor: '#66d1ca',
+    barColor: '#303030',
     barTextColor: '#FFF',
     barMainButtonColor: '#FFF',
     barMainButtonTextColor: '#312e2e',
@@ -109,7 +109,7 @@ window.CookieConsent.init({
   },
   services: {
 	ojs: {
-		category: 'necessary',
+		category: 'social',
 		type: 'localcookie', // dynamic-script, script-tag, wrapped, localcookie
 		search: 'OJS',
 		cookies: [

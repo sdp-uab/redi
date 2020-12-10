@@ -112,6 +112,8 @@ class rediThemePlugin extends ThemePlugin {
 
 		// JS libraries
 		// $this->addScript('bsScrollspy', 'js/lib/bootstrap/scrollspy.js');
+		$this->addScript('cookieconsent', 'js/cookieconsent/cookieconsent.min.js');
+		$this->addScript('cookieconfig', 'js/cookieconsent/cookieconsent.config.js');
 		$this->addScript('redi', 'js/headerEffect.js');
 
 		// Additional theme information
